@@ -1,3 +1,6 @@
+// Don't be confused!!! This component has no use in the project right now!!! use this styling to customize drawer later
+
+
 import {makeStyles} from "@material-ui/core/styles";
 
 const drawerWidth = 150;

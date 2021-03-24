@@ -8,13 +8,14 @@ const theme = createMuiTheme({
       main: '#556cd6',
     },
     secondary: {
-      main: '#19857b',
+      // main: '#19857b',
+      main: `rgba(0,0,0,0.87)`
     },
     error: {
       main: red.A400,
     },
     background: {
-      default: '#e5e5e5',
+      default: '#f7f8fa',
       paper:'#fafafa',
     },
   },
@@ -33,9 +34,10 @@ const theme = createMuiTheme({
         html: {
           fontSize: '62.5%',
         },
-        // body: {
-        //   padding: 0,
-        // },
+        body: {
+          padding: 0,
+          fontFamily: `'Montserrat', sans-serif`
+        },
         '*, *::before, *::after': {
           margin: 0,
           padding: 0
@@ -47,11 +49,6 @@ const theme = createMuiTheme({
         boxShadow: "unset"
       }
     },
-    MuiList: {
-      root: {
-        fontSize: '18px'
-      }
-    }
   }
 });
 

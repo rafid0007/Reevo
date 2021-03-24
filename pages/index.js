@@ -1,9 +1,87 @@
-import Layout from "../components/layout";
+import Layout from "../components/layout/layout";
+import homePageStyles from "./index.module.scss";
+import { Grid } from "@material-ui/core";
+import Card from "../components/card/card";
+import Box from "@material-ui/core/Box";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import React, { useEffect, useState } from "react";
+import Carousel from "../components/carousel/carousel";
+
+// const timeout = ms => new Promise(res => setTimeout(res, ms)); // test code
 
 const Index = () => {
-    return (
-        <Layout>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aliquid aperiam delectus dolores eaque facere inventore ipsam labore mollitia nemo nostrum pariatur perspiciatis quas sed sit voluptatem voluptatibus. Autem consectetur consequuntur corporis cum ea eligendi enim esse, eum expedita impedit iste libero maiores modi molestiae molestias nobis obcaecati odit officiis optio praesentium quas quidem quis ratione rerum sunt tenetur vitae voluptas, voluptatem voluptatibus voluptatum! Accusamus adipisci, delectus dignissimos dolor earum inventore itaque officia recusandae sequi? Beatae cumque error inventore officia pariatur quam rerum tenetur ullam veritatis? Accusantium delectus, distinctio dolor doloremque doloribus dolorum, eaque error facere harum labore magnam maxime molestiae necessitatibus numquam perferendis placeat porro repudiandae ullam! Asperiores doloremque hic laborum! Ab aspernatur consequatur dignissimos dolor ducimus eligendi, esse eveniet harum in laboriosam laborum natus non perferendis quas quia quis sint sunt, suscipit vitae voluptatibus. Alias eos eveniet incidunt laudantium quam quibusdam sed sit tempore. Aspernatur autem blanditiis consectetur cupiditate delectus dicta dolor dolorem eos, eum excepturi id in magnam placeat praesentium quam quo ratione sapiente totam ullam voluptate! Ab autem, commodi consectetur, corporis debitis dolor eligendi eveniet excepturi harum illum ipsa itaque iusto laudantium necessitatibus nisi odio optio quia repellat? Accusantium assumenda, aut dolorem esse est quisquam? Autem cupiditate eum exercitationem illum in, incidunt maxime natus nesciunt nobis soluta. Accusantium assumenda aut culpa cupiditate dolorum eveniet excepturi fugiat illum in mollitia nam nihil, officia praesentium quae, rerum! A accusamus asperiores aut blanditiis consequatur corporis culpa cumque deserunt, doloremque eos, impedit ipsam ipsum iusto libero, magni modi non perspiciatis repellat reprehenderit similique! Culpa error voluptas voluptatem? Ab beatae cupiditate debitis dolorum et ex fugiat iste itaque laudantium, magnam maiores odit placeat ratione reiciendis tempora unde vel. A accusantium aperiam ducimus eligendi eveniet itaque maxime necessitatibus nobis odio officia pariatur perspiciatis placeat provident quasi qui quibusdam quisquam, reiciendis sequi, sint sit soluta ullam veniam vero voluptas voluptatem? Ab amet animi, atque cum delectus deserunt dicta dolore eaque earum fugiat fugit illo iste magni minus, nesciunt nisi numquam obcaecati, provident quae quas recusandae soluta voluptates. Asperiores cum cumque dicta distinctio excepturi laboriosam libero minus necessitatibus nemo obcaecati pariatur, placeat porro rem tempora veritatis? Corporis cum nesciunt optio reiciendis rem sequi sit? Aliquam aliquid at, consectetur eos est excepturi ipsam magni, maiores nemo odio, optio porro quas qui rerum suscipit ullam vero voluptatibus. At, dolor ea, expedita labore laudantium molestiae numquam qui, quia repellat sed velit voluptate voluptatum. Excepturi nulla numquam tenetur unde. Asperiores autem cum ducimus est et laboriosam libero natus voluptates? Amet animi inventore ipsa iure natus repellendus ut velit. Ab accusantium aut consequuntur cumque, debitis distinctio dolore facere fugit ipsa ipsum itaque labore laboriosam maiores natus, odio officia optio pariatur, quam quibusdam similique soluta sunt vero voluptatibus! Adipisci aliquam cumque deleniti deserunt facilis fuga necessitatibus placeat sequi suscipit voluptatibus. Ad commodi culpa cum dignissimos dolorem dolores eligendi enim et eum nobis omnis pariatur, perferendis quaerat sequi velit! Deserunt dolor iure maiores modi nisi, quia repudiandae sed voluptates? Blanditiis cumque dignissimos in labore laborum nam natus repellendus similique vero voluptatum.</Layout>
-    );
+  const [products, setProducts] = useState(null);
+
+  useEffect(async () => {
+    const response = await fetch("http://localhost:3000/api/products");
+    const products = await response.json();
+    // await timeout(2000); // test code
+    setProducts(products);
+    console.log(products); //test code
+  },[] );
+
+  return (
+    <Layout>
+      <div className={homePageStyles.homeContent}>
+
+        {/********************************* Carousal **********************************/}
+
+        <Carousel height={300}/>
+
+        {/********************************* HomePage Content Grid **********************************/}
+        {/******* Main Container Start*******/}
+        <Grid
+          container
+          spacing={2}
+          component={Box}
+          mt={2}
+          aria-describedby="spinner"
+          aria-busy="true"
+        >
+
+          {/******* Nested Container Start*******/}
+
+          <Grid
+            container
+            justify="space-between"
+            component={Box}
+            py={3}
+            px={1}
+            mt={4}
+          >
+            <h2>Trending</h2>
+            <Box display={"flex"} alignItems={"center"}>
+              <h4>See All &nbsp;</h4>
+              <ArrowBackIosIcon style={{ fontSize: 14 }} />
+              <ArrowForwardIosIcon style={{ fontSize: 14 }} />
+            </Box>
+          </Grid>
+
+          {/******* Nested Container End*******/}
+
+          {products ? (
+            products.map((item, i) => (
+              <Grid key={i} item xs={6} sm={4} md={3} lg={2}>
+                <Card {...item} />
+              </Grid>
+            ))
+          ) : (
+            <CircularProgress
+              id="spinner"
+              color="secondary"
+              size="8rem"
+              style={{ margin: `0 auto` }}
+            />
+          )}
+        </Grid>
+
+        {/******* Main Container End *******/}
+
+      </div>
+    </Layout>
+  );
 };
 
 export default Index;
