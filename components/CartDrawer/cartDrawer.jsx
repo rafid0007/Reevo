@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
@@ -9,9 +10,14 @@ import Badge from "@material-ui/core/Badge";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import IconButton from "@material-ui/core/IconButton";
 
+import CartItem from "../cartItem/cartItem";
+import Grid from "@material-ui/core/Grid";
+import CartContent from "./cartContent";
+
 const useStyles = makeStyles((theme) => ({
   list: {
-    width: 250,
+    width: 500,
+    height: '100%',
   },
   fullList: {
     width: 'auto',
@@ -46,16 +52,13 @@ export default function SwipeableTemporaryDrawer() {
         [classes.fullList]: anchor === 'top' || anchor === 'bottom',
       })}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
+      // onClick={toggleDrawer(anchor, false)} // cmnt this line out to avoid closing cart on clicking cart
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {['Item-1', 'Item-2', 'Item-3', 'Item-4'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+
+      {/****************************** Cart content ******************************/}
+
+      <CartContent/>
     </div>
   );
 

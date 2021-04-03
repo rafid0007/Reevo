@@ -1,0 +1,14 @@
+@import "styles/variables";
+
+.sortBox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .4rem .7rem;
+  border: 1px solid $color-text-primary;
+  border-radius: 3px;
+  font-size: 1.3rem;
+  span{
+    margin-right: 1.5rem;
+  }
+}

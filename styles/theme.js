@@ -21,7 +21,7 @@ const theme = createMuiTheme({
   },
   typography: {
     htmlFontSize: 10,
-    // fontFamily: `'Montserrat', sans-serif`,
+    fontFamily: `'Montserrat', sans-serif`,
   },
   mixins: {
     toolbar: {
@@ -33,6 +33,7 @@ const theme = createMuiTheme({
       '@global': {
         html: {
           fontSize: '62.5%',
+          scrollBehavior: 'smooth',
         },
         body: {
           padding: 0,
@@ -41,6 +42,10 @@ const theme = createMuiTheme({
         '*, *::before, *::after': {
           margin: 0,
           padding: 0
+        },
+        'a, a:hover, a:visited': {
+          textDecoration: 'none',
+          color: 'unset'
         }
       },
     },

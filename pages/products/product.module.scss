@@ -1,0 +1,80 @@
+@import "../../styles/variables";
+
+@mixin sectionStyle {
+  margin-top: 2rem;
+  padding: 3rem;
+  background-color: $color-white;
+}
+
+.imgContainer{
+  height: 80vh;
+  overflow: hidden;
+  padding: 3rem;
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.desc{
+  padding: 3rem;
+}
+
+.descList{
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-column-gap: 3rem;
+  grid-row-gap: 1rem;
+  color: $color-text-secondary;
+}
+
+.selectContainer{
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  grid-column-gap: 2rem;
+}
+
+.ratingContainer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  a:hover{
+    text-decoration:underline;
+    cursor:pointer;
+  }
+}
+
+.priceBefore{
+  margin-top:3rem;
+  //font-size: 1.2rem;
+  text-decoration: line-through;
+}
+
+.priceNow{
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.buttonContainer{
+  margin-top: 3rem;
+  display: flex;
+}
+
+.detailsContainer {
+  @include sectionStyle;
+}
+
+.reviewContainer {
+  @include sectionStyle;
+}
+
+.reviewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 8rem;
+  grid-row-gap: 4rem;
+}

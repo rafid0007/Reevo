@@ -1,0 +1,22 @@
+.cartContent {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 8fr 2fr;
+}
+
+.cartItems{
+  overflow: auto;
+}
+
+.cartCheckout{
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cartTotal {
+  display: flex;
+  justify-content: space-between;
+}

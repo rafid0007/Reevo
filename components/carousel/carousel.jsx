@@ -6,7 +6,7 @@ import carouselStyle from './carousel.module.scss';
 const images = [
   "https://i.ibb.co/DfGW2JH/hero-image.jpg",
   "https://i.ibb.co/Jc384sq/carousel-2-desktop.jpg",
-  "https://i.ibb.co/S0z39Zb/carousel-3-desktop.jpg"
+  "https://i.ibb.co/S0z39Zb/carousel-3-desktop.jpg",
 ];
 
 const mobileImages = [
@@ -18,7 +18,7 @@ const HomeCarousel = ({ height }) => {
   return (
     <>
       <Hidden xsDown>
-        <Carousel interval={5000} animation='slide'>
+        <Carousel interval={5000} animation='slide' navButtonsAlwaysInvisible>
           {images.map((item, i) => (
             <Item key={i} item={item} height={height} />
           ))}

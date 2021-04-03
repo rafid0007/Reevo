@@ -1,36 +1,29 @@
-import Layout from "../components/layout/layout";
-import homePageStyles from "./index.module.scss";
 import { Grid } from "@material-ui/core";
-import Card from "../components/card/card";
 import Box from "@material-ui/core/Box";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import React, { useEffect, useState } from "react";
+
+
+import Layout from "../components/layout/layout";
+import Card from "../components/card/card";
 import Carousel from "../components/carousel/carousel";
 
-// const timeout = ms => new Promise(res => setTimeout(res, ms)); // test code
+import homePageStyles from "./index.module.scss";
+import Link from "next/link";
 
-const Index = () => {
-  const [products, setProducts] = useState(null);
-
-  useEffect(async () => {
-    const response = await fetch("http://localhost:3000/api/products");
-    const products = await response.json();
-    // await timeout(2000); // test code
-    setProducts(products);
-    console.log(products); //test code
-  },[] );
+const Index = ({products}) => {
 
   return (
     <Layout>
       <div className={homePageStyles.homeContent}>
 
-        {/********************************* Carousal **********************************/}
+        {/********************************* Carousal Component**********************************/}
 
         <Carousel height={300}/>
 
         {/********************************* HomePage Content Grid **********************************/}
+
         {/******* Main Container Start*******/}
         <Grid
           container
@@ -41,7 +34,7 @@ const Index = () => {
           aria-busy="true"
         >
 
-          {/******* Nested Container Start*******/}
+          {/******* Nested Container Grid Start*******/}
 
           <Grid
             container
@@ -59,21 +52,21 @@ const Index = () => {
             </Box>
           </Grid>
 
-          {/******* Nested Container End*******/}
+          {/******* Nested Container Grid End*******/}
 
           {products ? (
-            products.map((item, i) => (
-              <Grid key={i} item xs={6} sm={4} md={3} lg={2}>
-                <Card {...item} />
-              </Grid>
-            ))
+              products.map((item, i) => (
+                  <Grid key={i} item xs={6} sm={4} md={3} lg={3}>
+                    <Card {...item} />
+                  </Grid>
+              ))
           ) : (
-            <CircularProgress
-              id="spinner"
-              color="secondary"
-              size="8rem"
-              style={{ margin: `0 auto` }}
-            />
+              <CircularProgress
+                  id="spinner"
+                  color="secondary"
+                  size="8rem"
+                  style={{ margin: `0 auto` }}
+              />
           )}
         </Grid>
 
@@ -82,6 +75,18 @@ const Index = () => {
       </div>
     </Layout>
   );
+};
+
+export const getStaticProps = async (context) => {
+    const res = await fetch("http://localhost:3000/api/products");
+    const products = await res.json();
+
+    return {
+        props:{
+            products
+        },
+        revalidate: 3600   //add revalidate before deploying to production
+    }
 };
 
 export default Index;
