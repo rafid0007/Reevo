@@ -49,8 +49,8 @@ const Layout = (props) => {
       {/************** Left categories ************/}
 
       <List>
-        {["Explore", "Shoes", "Clothing", "Gears"].map((text) => (
-          <Link href = {'products'}>
+        {["Explore", "Shoes", "Clothing", "Gears"].map((text, i) => (
+          <Link key={i} href='/products'>
             <a>
               <ListItem className={classes.ListItem} button key={text}>
                 <ListItemText

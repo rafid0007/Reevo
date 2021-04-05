@@ -8,11 +8,59 @@ import ProductDescList from "../../components/productDescList/productDescList";
 
 import productStyles from './product.module.scss';
 import SelectComponent from "../../components/select/select";
+import UserReview from "../../components/userReview/userReview";
+import ImageGallery from "../../components/imageModal/imageGallery";
+import ProductRating from "../../components/productRating/productRating";
 import Box from "@material-ui/core/Box";
 import Rating from "@material-ui/lab/Rating";
-import UserReview from "../../components/userReview/userReview";
+import ProductPrice from "../../components/productPrice/productPrice";
+
+
+const product = {
+    id: "1",
+    title: "Black T-Shirt with 100% cotton fiber",
+    descriptions: [
+        {key:"PRODUCT ID",value:'01'},
+        {key:'STATUS',value:'Available'},
+        {key:'MATERIAL',value:'Cotton'},
+        {key:'BRAND',value:'Yellow'},
+        ],
+    details:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid animi consequuntur distinctio dolor dolore dolores est fugiat hic, illum inventore ipsum magnam maxime, molestiae mollitia placeat quam, quos ratione sit vitae. Ab alias asperiores aut blanditiis consequatur eius explicabo harum ipsa nam nisi nostrum possimus praesentium quia, quisquam quo quos repellat reprehenderit suscipit ullam utpak.' ,
+    priceCurrent: 500,
+    priceBefore: 350,
+    categories: ["category1", "category2", "category3"],
+    imageUrls: [
+        "https://i.ibb.co/zscCfcm/black-tee-1.png",
+        "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+        "https://i.ibb.co/hdjbbSC/grey-tee-1.png"
+    ],
+    reviews: [
+        {
+            user: 'Gonu Molla',
+            rating: 2,
+            date: '3 April 2021',
+            userReview: 'This product is disfunctional just like me.'
+        },
+        {
+            user: 'Tanvir',
+            rating: 5,
+            date: '5 April 2021',
+            userReview: 'Long lasting.'
+        },
+        {
+            user: 'Arko',
+            rating: 4,
+            date: '13 April 2021',
+            userReview: 'Feels good.'
+        }
+    ],
+    sizes: ['S','M','L','XL','XXL'],
+    colors: ['Black','White','Blue','Yellow']
+
+};
 
 const Product = () => {
+
     return (
         <Layout>
 
@@ -23,9 +71,7 @@ const Product = () => {
                 {/*************** Product Image Container **************/}
 
                 <Grid item xs={12} md={6}>
-                    <div className= {productStyles.imgContainer}>
-                        <img src="https://i.ibb.co/zscCfcm/black-tee-1.png" alt="product"/>
-                    </div>
+                    <ImageGallery imgArr={product.imageUrls}/>      {/* Image Gallery Component */}
                 </Grid>
 
                 {/************* Product description Container ***********/}
@@ -33,64 +79,32 @@ const Product = () => {
                 <Grid item xs={6} md={6}>
 
                     <div className={productStyles.desc}>
+                        <Typography variant="h4">{product.title}</Typography>    {/* Product title */}
 
-                        {/****** Product title *****/}
+                        <ProductRating reviews={product.reviews}/>      {/* Product Rating(component) */}
 
-                        <Typography variant="h4">
-                            Black Tee Shirt with 100% Cotton fiber
-                        </Typography>
+                        <ProductDescList descriptions={product.descriptions}/>  {/*Product Bullet points(Component) */}
 
-                        {/****** Product rating *****/}
-
-                        <div className={productStyles.ratingContainer}>
-                            <Box component="fieldset" mr={1} borderColor="transparent">
-                                <Rating
-                                  name="totalRating"
-                                  size="small"
-                                  precision={0.1}
-                                  value={3.5}
-                                  readOnly
-                                />
-                            </Box>
-                            <a href="#reviews">
-                                <Typography>34 ratings</Typography>
-                            </a>
-                        </div>
-
-                        {/****** Product Bullet points Container *****/}
-
-                        <div className={productStyles.descList}>
-                            {
-                                descList.map((item,i)=>(
-                                    <ProductDescList key={i} item={item}/>
-                                ))
-                            }
-                        </div>
-
-                        {/******* Product price Container ******/}
-
-                        <div >
-                            <div className={productStyles.priceBefore}>
-                                <span style={{}}>৳ </span > <span>350.00</span>
-                            </div>
-                            <div className={productStyles.priceNow}>
-                                <span style={{fontSize:'1.8rem',fontWeight:400}}>৳ </span > <span>500.00</span>
-                            </div>
-                        </div>
+                        <ProductPrice price={product.priceCurrent} priceBefore={product.priceBefore}/>  {/* Product price(component) */}
 
                         {/****** Product purchase options Container *****/}
 
                         <div className={productStyles.selectContainer}>
-                            <SelectComponent label='Quantity' initialValue={1} optionArray={[1,2,3,4,5]}/>
+
+                            <SelectComponent
+                                label='Quantity
+                                ' initialValue={1}
+                                optionArray={[1,2,3,4,5]}
+                            />
+
                             <SelectComponent
                                 label='Color'
-                                initialValue='black'
-                                optionArray={['black','red','blue']}
+                                optionArray={product.colors}
                             />
+
                             <SelectComponent
                                 label='Size'
-                                initialValue='L'
-                                optionArray={['S','M','L','X','XL','XXL']}
+                                optionArray={product.sizes}
                             />
                         </div>
 
@@ -121,16 +135,16 @@ const Product = () => {
 
             {/***************************************** Product Details start ******************************/}
 
-                <div className={productStyles.detailsContainer}>
-                    <Typography variant="h5" style={{fontWeight:500}}>Product Details</Typography>
-                    <Typography variant="body2" style={{marginTop:'3rem'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid animi consequuntur distinctio dolor dolore dolores est fugiat hic, illum inventore ipsum magnam maxime, molestiae mollitia placeat quam, quos ratione sit vitae. Ab alias asperiores aut blanditiis consequatur eius explicabo harum ipsa nam nisi nostrum possimus praesentium quia, quisquam quo quos repellat reprehenderit suscipit ullam ut.</Typography>
-                </div>
+            <section className={productStyles.detailsContainer}>
+                <Typography variant="h5" style={{fontWeight:500}}>Product Details</Typography>
+                <Typography variant="body2" style={{marginTop:'3rem'}}>{product.details}</Typography>
+            </section>
 
             {/***************************************** Product Details End ******************************/}
 
             {/**************************************** Product review start ******************************/}
 
-            <div id='reviews' className={productStyles.reviewContainer}>
+            <section id='reviews' className={productStyles.reviewContainer}>
                 <Typography
                     variant={"h5"}
                     style={{fontWeight:500,marginBottom:'3rem'}}
@@ -138,13 +152,15 @@ const Product = () => {
                     Product Reviews
                 </Typography>
 
+                {/****************** User Review component *******************/}
+
                 {
-                    reviews.map((item, i) => (
+                    product.reviews.map((item, i) => (
                         <UserReview key={i} review={item}/>
                     ))
                 }
 
-            </div>
+            </section>
 
             {/***************************************** Product review End *********************************/}
 
@@ -153,31 +169,3 @@ const Product = () => {
 };
 
 export default Product;
-
-const descList = [
-    {key:"PRODUCT ID",value:'01'},
-    {key:'STATUS',value:'Available'},
-    {key:'MATERIAL',value:'Cotton'},
-    {key:'BRAND',value:'Yellow'}
-    ];
-
-const reviews = [
-    {
-        user: 'Gonu Molla',
-        rating: 2,
-        date: '3 April 2021',
-        userReview: 'This product is disfunctional just like me.'
-    },
-    {
-        user: 'Tanvir',
-        rating: 5,
-        date: '5 April 2021',
-        userReview: 'Long lasting.'
-    },
-    {
-        user: 'Arko',
-        rating: 4,
-        date: '13 April 2021',
-        userReview: 'Feels good.'
-    }
-];

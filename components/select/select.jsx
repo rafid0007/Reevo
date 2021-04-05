@@ -12,9 +12,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const SelectComponent = ({label,initialValue,optionArray}) => {
+const SelectComponent = ({label,optionArray}) => {
     const classes = useStyles();
-    const [value, setValue] = useState(initialValue);
+    const [value, setValue] = useState(optionArray[0]);
 
     const handleChange = (event) => {
         setValue(event.target.value);

@@ -34,3 +34,4 @@ const CartContent = () => {
 };
 
 export default CartContent;
+

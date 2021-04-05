@@ -1,0 +1,27 @@
+.imgContainer{
+  height: 80vh;
+  overflow: hidden;
+  padding: 3rem;
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+  }
+}
+
+.imgThumbs {
+  display: grid;
+  grid-gap: .5rem;
+  grid-auto-flow: column;
+  justify-content: center;
+  padding: 1rem;
+  img{
+    height: 8rem;
+    width: 8rem;
+    border: 1px solid #e2e8f0;
+    padding: .5rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+}
