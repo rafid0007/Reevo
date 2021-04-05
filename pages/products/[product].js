@@ -11,8 +11,6 @@ import SelectComponent from "../../components/select/select";
 import UserReview from "../../components/userReview/userReview";
 import ImageGallery from "../../components/imageModal/imageGallery";
 import ProductRating from "../../components/productRating/productRating";
-import Box from "@material-ui/core/Box";
-import Rating from "@material-ui/lab/Rating";
 import ProductPrice from "../../components/productPrice/productPrice";
 
 
@@ -21,13 +19,14 @@ const product = {
     title: "Black T-Shirt with 100% cotton fiber",
     descriptions: [
         {key:"PRODUCT ID",value:'01'},
-        {key:'STATUS',value:'Available'},
         {key:'MATERIAL',value:'Cotton'},
         {key:'BRAND',value:'Yellow'},
+        {key:"Gender",value: "male"}
         ],
     details:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid animi consequuntur distinctio dolor dolore dolores est fugiat hic, illum inventore ipsum magnam maxime, molestiae mollitia placeat quam, quos ratione sit vitae. Ab alias asperiores aut blanditiis consequatur eius explicabo harum ipsa nam nisi nostrum possimus praesentium quia, quisquam quo quos repellat reprehenderit suscipit ullam utpak.' ,
     priceCurrent: 500,
     priceBefore: 350,
+    available: true,
     categories: ["category1", "category2", "category3"],
     imageUrls: [
         "https://i.ibb.co/zscCfcm/black-tee-1.png",
@@ -55,7 +54,7 @@ const product = {
         }
     ],
     sizes: ['S','M','L','XL','XXL'],
-    colors: ['Black','White','Blue','Yellow']
+    colors: ['Black','White','Blue','Pink']
 
 };
 

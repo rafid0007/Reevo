@@ -10,7 +10,6 @@ import Card from "../components/card/card";
 import Carousel from "../components/carousel/carousel";
 
 import homePageStyles from "./index.module.scss";
-import Link from "next/link";
 
 const Index = ({products}) => {
 
