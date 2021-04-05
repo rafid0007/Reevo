@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Typography} from "@material-ui/core";
+import {Paper} from "@material-ui/core";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import DeleteIcon from '@material-ui/icons/Delete';

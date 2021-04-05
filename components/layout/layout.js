@@ -15,7 +15,7 @@ import { useTheme } from "@material-ui/core/styles";
 import Link from "next/link";
 
 import CartDrawer from "../CartDrawer/cartDrawer";
-import NikeLogo from "../svgIcons/nikeLogo";
+// import NikeLogo from "../svgIcons/nikeLogo";
 import SearchBar from "../searchbar/searchbar";
 
 import layoutStyles from "./layout.styles";
@@ -42,7 +42,7 @@ const Layout = (props) => {
           className={`${classes.logoBox} ${classes.toolbar}`}
           style={{ textAlign: "center" }}
         >
-          <NikeLogo />
+          {/* <NikeLogo /> */}
         </div>
       </Hidden>
 
@@ -82,7 +82,7 @@ const Layout = (props) => {
           {/******* Company Logo *******/}
           <Hidden xsDown>
             <div className={`${classes.logoBox} ${classes.toolbar}`}>
-              <NikeLogo />
+              {/* <NikeLogo /> */}
             </div>
           </Hidden>
           {/******* Menu Icon for mobile *******/}
