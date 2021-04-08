@@ -1,0 +1,35 @@
+.wrapper{
+  margin-top: 1.5rem;
+}
+
+.heading{
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem .5rem;
+}
+
+.navigations{
+  display: flex;
+  align-items: center;
+  h4{
+    cursor: pointer;
+  }
+}
+
+.productsBoxContainer{
+  position: relative;
+}
+
+.productsBox{
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;  /* Chrome Safari */
+}
+  scroll-behavior: smooth;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1.5vw;
+
+}
