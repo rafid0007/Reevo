@@ -15,7 +15,7 @@ import { useTheme } from "@material-ui/core/styles";
 import Link from "next/link";
 
 import CartDrawer from "../CartDrawer/cartDrawer";
-// import NikeLogo from "../svgIcon Components/nikeLogo";
+// import NikeLogo from "../svgIcon/nikeLogo";
 import SearchBar from "../searchBar/searchBar";
 
 import layoutStyles from "./layout.styles";

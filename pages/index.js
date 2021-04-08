@@ -5,13 +5,13 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 
-import Layout from "../components/layout Components/layout/layout";
-import Card from "../components/common Components/card/card";
-import Carousel from "../components/homePage Components/carousel/carousel";
+import Layout from "../components/layout/layout/layout";
+import Card from "../components/common/card/card";
+import Carousel from "../components/homePage/carousel/carousel";
 
 import homePageStyles from "./index.module.scss";
 import ProductsHorizontalScroll
-    from "../components/homePage Components/productsHorizontalScroll/productsHorizontalScroll";
+    from "../components/homePage/productsHorizontalScroll/productsHorizontalScroll";
 
 const Index = ({products}) => {
 
