@@ -1,7 +1,7 @@
-import Layout from "../../components/layout Components/layout/layout";
-import SortBox from "../../components/collectionPage Components/SortBox/sortBox";
+import Layout from "../../components/layout/layout/layout";
+import SortBox from "../../components/collectionPage/SortBox/sortBox";
 import productPageStyles from './productPage.module.scss';
-import Card from "../../components/common Components/card/card";
+import Card from "../../components/common/card/card";
 import utilityStyles from '../../styles/utility.module.scss';
 import Grid from "@material-ui/core/Grid";
 import React from "react";

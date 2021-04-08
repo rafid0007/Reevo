@@ -13,7 +13,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import { useTheme } from "@material-ui/core/styles";
 import Link from "next/link";
-import CartContext from "../../contexts/CartContext";
+import CartContext from "../../../contexts/CartContext";
 
 import CartDrawer from "../CartDrawer/cartDrawer";
 // import NikeLogo from "../svgIcon Components/nikeLogo";

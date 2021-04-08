@@ -1,7 +1,7 @@
 import {useRef} from 'react';
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import Card from '../../common Components/card/card'
+import Card from '../../common/card/card'
 
 import styles from './productsHorizontalScroll.module.scss';
 
