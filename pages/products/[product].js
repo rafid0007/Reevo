@@ -3,15 +3,15 @@ import {Button, Typography} from "@material-ui/core";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ShopTwoOutlinedIcon from '@material-ui/icons/ShopTwoOutlined';
 
-import Layout from "../../components/layout/layout";
-import ProductDescList from "../../components/productDescList/productDescList";
+import Layout from "../../components/layout Components/layout/layout";
+import ProductDescList from "../../components/productPage Components/productDescList/productDescList";
 
 import productStyles from './product.module.scss';
-import SelectComponent from "../../components/select/select";
-import UserReview from "../../components/userReview/userReview";
-import ImageGallery from "../../components/imageModal/imageGallery";
-import ProductRating from "../../components/productRating/productRating";
-import ProductPrice from "../../components/productPrice/productPrice";
+import SelectComponent from "../../components/productPage Components/select/select";
+import UserReview from "../../components/productPage Components/userReview/userReview";
+import ImageGallery from "../../components/collectionPage Components/imageModal/imageGallery";
+import ProductRating from "../../components/productPage Components/productRating/productRating";
+import ProductPrice from "../../components/productPage Components/productPrice/productPrice";
 
 
 const product = {

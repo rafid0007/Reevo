@@ -1,7 +1,7 @@
 export const data = [
     {
     id: "1",
-    title: "Grey tee shirt",
+    title: "Grey tee shirt ",
     descriptions: [
         {key:"PRODUCT ID",value:'01'},
         {key:'MATERIAL',value:'Cotton'},

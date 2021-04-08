@@ -1,7 +1,7 @@
-import Layout from "../../components/layout/layout";
-import SortBox from "../../components/SortBox/sortBox";
+import Layout from "../../components/layout Components/layout/layout";
+import SortBox from "../../components/collectionPage Components/SortBox/sortBox";
 import productPageStyles from './productPage.module.scss';
-import Card from "../../components/card/card";
+import Card from "../../components/common Components/card/card";
 import utilityStyles from '../../styles/utility.module.scss';
 import Grid from "@material-ui/core/Grid";
 import React from "react";
@@ -22,13 +22,13 @@ const Products = ({products}) => {
                     </div>
 
                     {/********* cards container *******/}
-                    <Grid container spacing={2}>
+                    <div className={productPageStyles.gridInner}>
                         {
-                            products.map((item, i) => (<Grid item xs={6} sm={6} md={4} lg={3} key={i}>
-                                <Card {...item}/>
-                            </Grid> ))
+                            products.map((item, i) => (
+                                <Card key={i} {...item}/>
+                             ))
                         }
-                    </Grid>
+                    </div>
 
                 </div>
 
