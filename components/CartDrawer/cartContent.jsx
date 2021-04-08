@@ -7,6 +7,27 @@ import Button from "@material-ui/core/Button";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 
+const cartItems = [
+    {
+      productImg: "https://i.ibb.co/zscCfcm/black-tee-1.png",
+      productName: "Black Tee Shirt with 100% fiber with cotton",
+      productPriceRate:500,
+      productQuantity:1,
+    },
+    {
+      productImg: "https://i.ibb.co/zscCfcm/black-tee-1.png",
+      productName: "Black Tee Shirt with 100% fiber with cotton",
+      productPriceRate:500,
+      productQuantity:3,
+    },
+    {
+      productImg: "https://i.ibb.co/zscCfcm/black-tee-1.png",
+      productName: "Black Tee Shirt with 100% fiber with cotton",
+      productPriceRate:500,
+      productQuantity:4,
+    },
+  ];
+
 const CartContent = () => {
     return (
         <div className={style.cartContent}>

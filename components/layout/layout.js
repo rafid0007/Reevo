@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, Fragment } from "react";
 
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,6 +13,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import { useTheme } from "@material-ui/core/styles";
 import Link from "next/link";
+import CartContext from "../../contexts/CartContext";
 
 import CartDrawer from "../CartDrawer/cartDrawer";
 // import NikeLogo from "../svgIcons/nikeLogo";
@@ -24,12 +25,33 @@ const Layout = (props) => {
   const { window, children } = props;
   const classes = layoutStyles();
   const theme = useTheme();
+
+  // cart item count start
+  const [cartItemCount, setCartItemCount] = useState(0);
+  const getCartItemCount = () => {
+    const cart = JSON.parse(localStorage.getItem("noobshit_cart"));
+    let itemCount = 0;
+    if (cart) {
+      if (cart.length > 0) {
+        itemCount = cart.length;
+      }
+    }
+    return itemCount;
+  };
+
+  const refreshCartItemCount = () => {
+    setCartItemCount(getCartItemCount());
+  };
+  useEffect(() => {
+    refreshCartItemCount();
+  }, []);
+  // cart item count end
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
 
   //******************************** Drawer Content Start *********************************//
 
@@ -50,7 +72,7 @@ const Layout = (props) => {
 
       <List>
         {["Explore", "Shoes", "Clothing", "Gears"].map((text, i) => (
-          <Link key={i} href='/products'>
+          <Link key={i} href="/products">
             <a>
               <ListItem className={classes.ListItem} button key={text}>
                 <ListItemText
@@ -72,113 +94,118 @@ const Layout = (props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
+    <Fragment>
+      <CartContext.Provider
+        value={{
+          refreshCartItemCount,
+        }}
+      >
+        <div className={classes.root}>
+          <CssBaseline />
 
-      {/********************************* Appbar Component Start**********************************/}
+          {/********************************* Appbar Component Start**********************************/}
 
-      <AppBar position="fixed" color="transparent" className={classes.appBar}>
-        <Toolbar>
-          {/******* Company Logo *******/}
-          <Hidden xsDown>
-            <div className={`${classes.logoBox} ${classes.toolbar}`}>
-              {/* <NikeLogo /> */}
-            </div>
-          </Hidden>
-          {/******* Menu Icon for mobile *******/}
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
+          <AppBar
+            position="fixed"
+            color="transparent"
+            className={classes.appBar}
           >
-            <MenuIcon />
-          </IconButton>
-          {/******* Top Categories List *******/}
-          <List className={classes.listHorizontal}>
-            {["Men", "Women", "Kid's"].map((text) => (
-              <ListItem className={classes.ListItemH} button key={text}>
-                <ListItemText
-                  disableTypography
-                  className={classes.listItemText}
-                  primary={text}
-                />
-              </ListItem>
-            ))}
-          </List>
+            <Toolbar>
+              {/******* Company Logo *******/}
+              <Hidden xsDown>
+                <div className={`${classes.logoBox} ${classes.toolbar}`}>
+                  {/* <NikeLogo /> */}
+                </div>
+              </Hidden>
+              {/******* Menu Icon for mobile *******/}
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                className={classes.menuButton}
+              >
+                <MenuIcon />
+              </IconButton>
+              {/******* Top Categories List *******/}
+              <List className={classes.listHorizontal}>
+                {["Men", "Women", "Kid's"].map((text) => (
+                  <ListItem className={classes.ListItemH} button key={text}>
+                    <ListItemText
+                      disableTypography
+                      className={classes.listItemText}
+                      primary={text}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+              {/* the gap between search bar and categories */}
+              <div className={classes.grow} />{" "}
+              {/******* Search bar Component ******/}
+              <SearchBar />
+              {/* the gap between search bar and options */}
+              <div className={classes.grow} />{" "}
+              {/******* Cart Component with drawer *****/}
+              <CartDrawer cartItemCount={cartItemCount} />
+              {/******* User Profile Icon *******/}
+              <IconButton
+                aria-label="show 4 new mails"
+                color="inherit"
+                style={{ marginRight: "3rem" }}
+              >
+                <PersonOutlineOutlinedIcon />
+              </IconButton>
+            </Toolbar>
+          </AppBar>
 
-          {/* the gap between search bar and categories */}
-          <div className={classes.grow} />{" "}
+          {/********************************* Appbar Component End **********************************/}
 
-          {/******* Search bar Component ******/}
-          <SearchBar />
+          <nav className={classes.drawer} aria-label="mailbox folders">
+            {/****************************** Drawer(left) Component(mobile) Start *****************************/}
 
-          {/* the gap between search bar and options */}
-          <div className={classes.grow} />{" "}
+            <Hidden smUp implementation="css">
+              <Drawer
+                container={container}
+                variant="temporary"
+                anchor={theme.direction === "rtl" ? "right" : "left"}
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
+                ModalProps={{
+                  keepMounted: true, // Better open performance on mobile.
+                }}
+              >
+                {drawer}
+              </Drawer>
+            </Hidden>
+            {/****************************** Drawer(left) Component(mobile) End *****************************/}
 
-          {/******* Cart Component with drawer *****/}
-          <CartDrawer />
+            {/***************************** Drawer(left) Component(desktop) Start ***************************/}
+            <Hidden xsDown implementation="css">
+              <Drawer
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
+                variant="permanent"
+                open
+              >
+                {drawer}
+              </Drawer>
+            </Hidden>
+            {/***************************** Drawer(left) Component(desktop) End ***************************/}
+          </nav>
 
-          {/******* User Profile Icon *******/}
-          <IconButton
-            aria-label="show 4 new mails"
-            color="inherit"
-            style={{ marginRight: "3rem" }}
-          >
-            <PersonOutlineOutlinedIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+          {/********************************* Page Content **********************************/}
 
-      {/********************************* Appbar Component End **********************************/}
-
-      <nav className={classes.drawer} aria-label="mailbox folders">
-
-        {/****************************** Drawer(left) Component(mobile) Start *****************************/}
-
-        <Hidden smUp implementation="css">
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        {/****************************** Drawer(left) Component(mobile) End *****************************/}
-
-        {/***************************** Drawer(left) Component(desktop) Start ***************************/}
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        {/***************************** Drawer(left) Component(desktop) End ***************************/}
-
-      </nav>
-
-      {/********************************* Page Content **********************************/}
-
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        {children}
-      </main>
-    </div>
+          <main className={classes.content}>
+            <div className={classes.toolbar} />
+            {children}
+          </main>
+        </div>
+      </CartContext.Provider>
+    </Fragment>
   );
 };
 
