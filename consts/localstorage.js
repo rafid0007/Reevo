@@ -1,0 +1,1 @@
+export const cartItemConst = "NOOB_COMMERCE_CART_ITEMS"
