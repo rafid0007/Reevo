@@ -1,5 +1,8 @@
 import React, { useState, useEffect, Fragment } from "react";
 
+import Link from "next/link";
+
+// material ui imports
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Drawer from "@material-ui/core/Drawer";
@@ -12,7 +15,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import { useTheme } from "@material-ui/core/styles";
-import Link from "next/link";
+
 import CartContext from "../../../contexts/CartContext";
 
 import CartDrawer from "../CartDrawer/cartDrawer";
@@ -71,8 +74,8 @@ const Layout = (props) => {
       {/************** Left categories ************/}
 
       <List>
-        {["Explore", "Shoes", "Clothing", "Gears"].map((text, i) => (
-          <Link key={i} href="/products">
+        {["Explore", "Shoes", "Clothing", "Gears"].map((text, index) => (
+          <Link key={index} href={ text==="Explore" ? '/' : `/categories/${text.toLowerCase()}` }>
             <a>
               <ListItem className={classes.ListItem} button key={text}>
                 <ListItemText
@@ -129,14 +132,18 @@ const Layout = (props) => {
               </IconButton>
               {/******* Top Categories List *******/}
               <List className={classes.listHorizontal}>
-                {["Men", "Women", "Kid's"].map((text) => (
-                  <ListItem className={classes.ListItemH} button key={text}>
-                    <ListItemText
-                      disableTypography
-                      className={classes.listItemText}
-                      primary={text}
-                    />
-                  </ListItem>
+                {["Men", "Women", "Kid's"].map((text, index) => (
+                  <Link key={index} href={ `/categories/${text.toLowerCase()}` }>
+                    <a>
+                      <ListItem className={classes.ListItem} button key={text}>
+                        <ListItemText
+                          disableTypography
+                          className={classes.listItemText}
+                          primary={text}
+                        />
+                      </ListItem>
+                    </a>
+                  </Link>
                 ))}
               </List>
               {/* the gap between search bar and categories */}

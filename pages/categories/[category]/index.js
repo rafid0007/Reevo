@@ -1,11 +1,35 @@
-import Layout from "../../components/layout/layout/layout";
-import SortBox from "../../components/collectionPage/SortBox/sortBox";
-import productPageStyles from './productPage.module.scss';
-import Card from "../../components/common/card/card";
-import utilityStyles from '../../styles/utility.module.scss';
-import Grid from "@material-ui/core/Grid";
 import React from "react";
 
+import Layout from "../../../components/layout/layout/layout";
+import SortBox from "../../../components/collectionPage/SortBox/sortBox";
+import Card from "../../../components/common/card/card";
+import {data} from "../../api/data";
+
+import productPageStyles from './productPage.module.scss';
+import utilityStyles from '../../../styles/utility.module.scss';
+
+export const getStaticProps = async (context) => {
+    const param = context.params.category;
+
+    const products = data.filter(item => item.categories.includes(param));
+
+    return {
+        props:{
+            products
+        }
+    }
+};
+
+export const getStaticPaths = async () => {
+    const paths = ['shoes','clothing','gears','men','women',"kid's"].map((cat) => ({
+        params:{category:cat}
+    }));
+
+    return {
+        paths,
+        fallback:false
+    }
+};
 
 const Products = ({products}) => {
     return (
@@ -45,17 +69,6 @@ const Products = ({products}) => {
             </div>
         </Layout>
     )
-};
-
-export const getStaticProps = async (context) => {
-    const res = await fetch("http://localhost:3000/api/products");
-    const products = await res.json();
-
-    return {
-        props:{
-            products
-        }
-    }
 };
 
 export default Products;
