@@ -1,12 +1,12 @@
 import React from "react";
 
-import Layout from "../../../components/layout/layout/layout";
-import SortBox from "../../../components/collectionPage/SortBox/sortBox";
-import Card from "../../../components/common/card/card";
-import {data} from "../../api/data";
+import Layout from "../../components/layout/layout/layout";
+import SortBox from "../../components/collectionPage/SortBox/sortBox";
+import Card from "../../components/common/card/card";
+import {data} from "../api/data";
 
 import productPageStyles from './productPage.module.scss';
-import utilityStyles from '../../../styles/utility.module.scss';
+import utilityStyles from '../../styles/utility.module.scss';
 
 export const getStaticProps = async (context) => {
     const param = context.params.category;

@@ -11,7 +11,7 @@ export default function Login() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
+      <Layout hideSidenav>
         <LoginContainer />
       </Layout>
     </Fragment>

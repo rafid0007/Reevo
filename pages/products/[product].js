@@ -6,7 +6,7 @@ import ShopTwoOutlinedIcon from '@material-ui/icons/ShopTwoOutlined';
 
 import Layout from "../../components/layout/layout/layout";
 import ProductDescList from "../../components/productPage/productDescList/productDescList";
-import SelectComponent from "../../components/productPage/select/select";
+import CustomSelect from "../../components/common/select/customSelect";
 import UserReview from "../../components/productPage/userReview/userReview";
 import ImageGallery from "../../components/collectionPage/imageModal/imageGallery";
 import ProductRating from "../../components/productPage/productRating/productRating";
@@ -54,9 +54,9 @@ const Product = ({product}) => {
 
                         {/****** Product purchase options Container *****/}
                         <div className={productStyles.selectContainer}>
-                            <SelectComponent label='Quantity' initialValue={1} optionArray={[1,2,3,4,5]}/>
-                            <SelectComponent label='Color' optionArray={product.colors}/>
-                            <SelectComponent label='Size' optionArray={product.sizes}/>
+                            <CustomSelect label='Quantity' initialValue={1} optionArray={[1,2,3,4,5]}/>
+                            <CustomSelect label='Color' optionArray={product.colors}/>
+                            <CustomSelect label='Size' optionArray={product.sizes}/>
                         </div>
 
                         {/***** Buttons Container ****/}

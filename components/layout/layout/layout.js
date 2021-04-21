@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 
 import Link from "next/link";
+import CartContext from "../../../contexts/CartContext";
 
 // material ui imports
 import AppBar from "@material-ui/core/AppBar";
@@ -15,17 +16,16 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import { useTheme } from "@material-ui/core/styles";
-
-import CartContext from "../../../contexts/CartContext";
-
 import CartDrawer from "../CartDrawer/cartDrawer";
+import {Dialog} from "@material-ui/core";
+
 // import NikeLogo from "../svgIcon Components/nikeLogo";
 import SearchBar from "../searchBar/searchBar";
-
+import LoginContainer from '../../../containers/Login/Login';
 import layoutStyles from "./layout.styles";
+import SignUpContainer from "../../../containers/SignUp/SignUp";
 
-const Layout = (props) => {
-  const { window, children } = props;
+const Layout = ({ window, children, hideSidenav }) => {
   const classes = layoutStyles();
   const theme = useTheme();
 
@@ -50,7 +50,7 @@ const Layout = (props) => {
   }, []);
   // cart item count end
 
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -74,8 +74,8 @@ const Layout = (props) => {
       {/************** Left categories ************/}
 
       <List>
-        {["Explore", "Shoes", "Clothing", "Gears"].map((text, index) => (
-          <Link key={index} href={ text==="Explore" ? '/' : `/categories/${text.toLowerCase()}` }>
+        {["Shoes", "Clothing", "Gears"].map((text, index) => (
+          <Link key={index} href={ `/categories/${text.toLowerCase()}` }>
             <a>
               <ListItem className={classes.ListItem} button key={text}>
                 <ListItemText
@@ -132,8 +132,8 @@ const Layout = (props) => {
               </IconButton>
               {/******* Top Categories List *******/}
               <List className={classes.listHorizontal}>
-                {["Men", "Women", "Kid's"].map((text, index) => (
-                  <Link key={index} href={ `/categories/${text.toLowerCase()}` }>
+                {["Explore", "Men", "Women", "Kid's"].map((text, index) => (
+                    <Link key={index} href={ text==="Explore" ? '/' : `/categories/${text.toLowerCase()}` }>
                     <a>
                       <ListItem className={classes.ListItem} button key={text}>
                         <ListItemText
@@ -152,25 +152,28 @@ const Layout = (props) => {
               <SearchBar />
               {/* the gap between search bar and options */}
               <div className={classes.grow} />{" "}
-              {/******* Cart Component with drawer *****/}
+              {/******* Cart Icon with drawer onClick *****/}
               <CartDrawer cartItemCount={cartItemCount} />
               {/******* User Profile Icon *******/}
+              <Link href='/login'>
+                <a>
               <IconButton
                 aria-label="show 4 new mails"
                 color="inherit"
                 style={{ marginRight: "3rem" }}
               >
-                <PersonOutlineOutlinedIcon />
+                    <PersonOutlineOutlinedIcon />
               </IconButton>
+              </a>
+              </Link>
             </Toolbar>
           </AppBar>
 
           {/********************************* Appbar Component End **********************************/}
 
-          <nav className={classes.drawer} aria-label="mailbox folders">
             {/****************************** Drawer(left) Component(mobile) Start *****************************/}
-
             <Hidden smUp implementation="css">
+              <nav className={classes.drawer} aria-label="mailbox folders">
               <Drawer
                 container={container}
                 variant="temporary"
@@ -186,23 +189,31 @@ const Layout = (props) => {
               >
                 {drawer}
               </Drawer>
+              </nav>
             </Hidden>
             {/****************************** Drawer(left) Component(mobile) End *****************************/}
 
             {/***************************** Drawer(left) Component(desktop) Start ***************************/}
-            <Hidden xsDown implementation="css">
-              <Drawer
-                classes={{
-                  paper: classes.drawerPaper,
-                }}
-                variant="permanent"
-                open
-              >
-                {drawer}
-              </Drawer>
-            </Hidden>
+          {
+            !hideSidenav?
+                (
+                    <Hidden xsDown implementation="css">
+                      <nav className={classes.drawer} aria-label="mailbox folders">
+                      <Drawer
+                        classes={{
+                          paper: classes.drawerPaper,
+                        }}
+                        variant="permanent"
+                        open
+                      >
+                        {drawer}
+                      </Drawer>
+                      </nav>
+                    </Hidden>
+                ):
+                null
+          }
             {/***************************** Drawer(left) Component(desktop) End ***************************/}
-          </nav>
 
           {/********************************* Page Content **********************************/}
 

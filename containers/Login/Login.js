@@ -8,41 +8,45 @@ import {
   Button,
   Grid,
   Paper,
-  Avatar,
+  Avatar
 } from "@material-ui/core";
 import Link from "next/link";
 import classes from "./Login.module.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import SignUpContainer from "../SignUp/SignUp";
 
 const Login = () => {
+
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      <CssBaseline/>
       <Paper className={classes.paper} elevation={2}>
-        <Container maxWidth="xs">
+        <Container maxWidth="xs" style={{paddingTop:'2rem'}}>
           <div className={classes.avatar}>
             <Avatar>
-              <LockOutlinedIcon color="inherit" />
+              <LockOutlinedIcon color="inherit"/>
             </Avatar>
           </div>
           <Typography component="h1" variant="h5" align="center" style={{fontWeight:'500'}}>
-            Sign In
+            Log In
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
               variant="outlined"
+              color='secondary'
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="phone"
+              label="Phone Number"
+              name="phone"
+              autoComplete="phone"
               autoFocus
             />
             <TextField
               variant="outlined"
+              color='secondary'
               margin="normal"
               required
               fullWidth
@@ -53,7 +57,7 @@ const Login = () => {
               autoComplete="current-password"
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" color="secondary" />}
               label="Remember me"
             />
             <div className={classes.submit}>
@@ -61,7 +65,7 @@ const Login = () => {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
+                color="secondary"
               >
                 Sign In
               </Button>
@@ -73,8 +77,11 @@ const Login = () => {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                Don't have an account?&nbsp;
+                <Link href='/sign-up'>
+                  <a>
+                    <b style={{textDecoration:'underline'}}>Sign Up</b>
+                  </a>
                 </Link>
               </Grid>
             </Grid>

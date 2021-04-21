@@ -5,6 +5,10 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
 import styles from './imageGallery.module.scss';
+import Dialog from "@material-ui/core/Dialog";
+import classes from "../../../containers/Login/Login.module.css";
+import CloseIcon from "@material-ui/icons/Close";
+import {IconButton} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -19,13 +23,19 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
   },
   fullImage: {
-      height: '90vh'
+      height: '90vh',
+      padding: '3rem'
+  },
+  closeIcon: {
+      position: 'absolute',
+      top:'1rem',
+      right:'1rem'
   }
 }));
 
 export const ImageGallery = ({imgArr}) => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
    const handleOpen = () => {
@@ -41,7 +51,7 @@ export const ImageGallery = ({imgArr}) => {
         {/******************************* Main Content Start ********************************/}
 
         <div className={styles.imgContainer}>
-            <img src={imgArr[currentImage]} alt="product" onClick={handleOpen}/>
+            <img src={imgArr[currentImage]} alt="product" onClick={()=>handleOpen()}/>
         </div>
 
         <div className={styles.imgThumbs}>
@@ -53,24 +63,34 @@ export const ImageGallery = ({imgArr}) => {
         </div>
         {/******************************* Main Content End ********************************/}
 
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
+      {/*<Modal*/}
+      {/*  aria-labelledby="transition-modal-title"*/}
+      {/*  aria-describedby="transition-modal-description"*/}
+      {/*  className={classes.modal}*/}
+      {/*  open={open}*/}
+      {/*  onClose={handleClose}*/}
+      {/*  closeAfterTransition*/}
+      {/*  BackdropComponent={Backdrop}*/}
+      {/*  BackdropProps={{*/}
+      {/*    timeout: 500,*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  <Fade in={open}>*/}
+      {/*    <div className={classes.paper}>*/}
+      {/*        <img src={imgArr[currentImage]} alt="product full image" className={classes.fullImage}/>*/}
+      {/*    </div>*/}
+      {/*  </Fade>*/}
+      {/*</Modal>*/}
+
+      <Dialog open={open} onClose={handleClose}>
+          <div style={{position:'relative', overflow:'hidden'}}>
               <img src={imgArr[currentImage]} alt="product full image" className={classes.fullImage}/>
+            <IconButton className={classes.closeIcon} onClick={() => handleClose()}> {/* close icon */}
+                <CloseIcon/>
+            </IconButton>
           </div>
-        </Fade>
-      </Modal>
+      </Dialog>
+
     </>
   );
 };
