@@ -1,6 +1,7 @@
 export const data = [
   {
     id: "1",
+    dateAdded: 12345,
     title: "Grey tee shirt ",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -43,6 +44,8 @@ export const data = [
   },
   {
     id: "2",
+    dateAdded: 12346,
+
     title: "Black T-Shirt",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -85,6 +88,8 @@ export const data = [
   },
   {
     id: "3",
+    dateAdded: 12347,
+
     title: "High hill",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -123,6 +128,8 @@ export const data = [
   },
   {
     id: "4",
+    dateAdded:12348,
+
     title: "Swimsuit",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -165,6 +172,8 @@ export const data = [
   },
   {
     id: "5",
+    dateAdded:12349,
+
     title: "Grey shorts",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -249,6 +258,8 @@ export const data = [
   },
   {
     id: "7",
+    dateAdded:12365,
+
     title: "Black Shoes",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -291,6 +302,8 @@ export const data = [
   },
   {
     id: "8",
+    dateAdded:12375,
+
     title: "Kid's romper",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -333,6 +346,8 @@ export const data = [
   },
   {
     id: "9",
+    dateAdded:12355,
+
     title: "Kid's shoes",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },

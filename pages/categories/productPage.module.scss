@@ -30,11 +30,14 @@
   @include boxLayout;
   align-items: center;
   h4{
-    margin-right: 2rem;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
 .grow{
   flex: 1;
+}
+
+.sortButton{
+  font-size: 1.3rem;
 }
