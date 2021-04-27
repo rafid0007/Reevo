@@ -1,43 +1,7 @@
 @import "../../styles/variables";
 
-@mixin boxLayout {
-  font-size: 1.6rem;
-  display: flex;
-  background-color: $color-white;
-  border-radius: 5px;
-  padding: 1.2rem 1rem;
-}
-
 .gridOuter{
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: 4fr 1fr;
-}
-
-.gridInner{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-gap: 1.5vw;
-}
-
-.filter{
-  @include boxLayout;
-  //margin-top: 16px;
-  height: 100vh; //temporary
-}
-
-.actionBar{
-  @include boxLayout;
-  align-items: center;
-  h4{
-    font-weight: 500;
-  }
-}
-
-.grow{
-  flex: 1;
-}
-
-.sortButton{
-  font-size: 1.3rem;
 }

@@ -1,0 +1,6 @@
+.gridInner{
+  margin-top: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 1.5vw;
+}

@@ -14,6 +14,7 @@ import ProductPrice from "../../components/productPage/productPrice/productPrice
 import {data} from "../api/data";
 
 import productStyles from './product.module.scss';
+import React from "react";
 
 export const getStaticProps = async (context) => {
     const param = context.params.product;
@@ -28,7 +29,7 @@ export const getStaticProps = async (context) => {
 export const getStaticPaths = async () => {
     return {
         paths:[],
-        fallback:true
+        fallback: 'blocking'
     }
 };
 

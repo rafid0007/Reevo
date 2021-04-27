@@ -10,3 +10,11 @@ $color-text-primary: rgba(0, 0, 0, 0.87);
 $color-text-secondary: #2d3748;
 $color-cart-text-1: #5E5454;
 
+//mixins
+@mixin boxLayout {
+  font-size: 1.6rem;
+  display: flex;
+  background-color: $color-white;
+  border-radius: 5px;
+  padding: 1.2rem 1rem;
+}

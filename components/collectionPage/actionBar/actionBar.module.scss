@@ -1,0 +1,14 @@
+.actionBar{
+  font-size: 1.6rem;
+  display: flex;
+  border-radius: 5px;
+  padding: 1.2rem 1rem;
+  align-items: center;
+  h4{
+    font-weight: 500;
+  }
+}
+
+.grow{
+  flex: 1;
+}
