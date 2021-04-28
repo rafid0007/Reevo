@@ -1,13 +1,11 @@
 import React from 'react';
 import Link from "next/link";
 
-import {routeMaker} from "../../../utility";
-
 import CardStyles from './card.module.scss';
 
 const Card = ({id,title,priceCurrent,imageUrls}) => {
     return (
-        <Link href={`/products/${routeMaker(id)}`}>
+        <Link href={`/products/${id}`}>
             <a>
                 <div className={CardStyles.card}>
                     <div className={CardStyles.imgContainer}>

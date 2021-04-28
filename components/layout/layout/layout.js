@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 
 import Link from "next/link";
+import {useRouter} from "next/router";
 import CartContext from "../../../contexts/CartContext";
 
 // material ui imports
@@ -28,6 +29,10 @@ import SignUpContainer from "../../../containers/SignUp/SignUp";
 const Layout = ({ window, children, hideSidenav }) => {
   const classes = layoutStyles();
   const theme = useTheme();
+  const router = useRouter();
+  const category = router.query.category;
+
+  // console.log('*********', router);
 
   // cart item count start
   const [cartItemCount, setCartItemCount] = useState(0);
@@ -74,8 +79,15 @@ const Layout = ({ window, children, hideSidenav }) => {
       {/************** Left categories ************/}
 
       <List>
-        {["Shoes", "Clothing", "Gears"].map((text, index) => (
-          <Link key={index} href={ `/categories/${text.toLowerCase()}` }>
+        {["shoes", "clothing", "gears"].map((text, index, array) => (
+          <
+              Link
+              key={index}
+              href={
+                category&&!array.includes(category)?
+                    `/categories/${category}/${text.toLowerCase()}` :
+                    `/categories/${text.toLowerCase()}`
+              }>
             <a>
               <ListItem className={classes.ListItem} button key={text}>
                 <ListItemText
