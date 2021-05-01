@@ -60,12 +60,13 @@ const useStyles = makeStyles((theme) => ({
   },
   logoBox: {
     width: `calc(${drawerWidth}px - 24px)`, // 24px margin on the left by default in the appbar component
-    paddingLeft: '1rem',  // to adjust the logo position into center
-    paddingTop: '1.3rem',
+    paddingRight: '24px', // to nullify 24px padding on the left
+    display: "flex",
+    justifyContent: 'center'
   },
   logoBoxHover: {
     cursor: 'pointer'
-}
+},
 }));
 
 export default useStyles;

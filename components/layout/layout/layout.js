@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 
 import Link from "next/link";
+import Image from "next/image";
 import {useRouter} from "next/router";
 import CartContext from "../../../contexts/CartContext";
 
@@ -18,13 +19,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import { useTheme } from "@material-ui/core/styles";
 import CartDrawer from "../CartDrawer/cartDrawer";
-import {Dialog} from "@material-ui/core";
 
-// import NikeLogo from "../svgIcon Components/nikeLogo";
 import SearchBar from "../searchBar/searchBar";
-import LoginContainer from '../../../containers/Login/Login';
 import layoutStyles from "./layout.styles";
-import SignUpContainer from "../../../containers/SignUp/SignUp";
 
 const Layout = ({ window, children, hideSidenav }) => {
   const classes = layoutStyles();
@@ -72,7 +69,7 @@ const Layout = ({ window, children, hideSidenav }) => {
           className={`${classes.logoBox} ${classes.toolbar}`}
           style={{ textAlign: "center" }}
         >
-          {/* <NikeLogo /> */}
+           <Image src='/logo.svg' height={50} width={50}/>
         </div>
       </Hidden>
 
@@ -129,7 +126,7 @@ const Layout = ({ window, children, hideSidenav }) => {
               {/******* Company Logo *******/}
               <Hidden xsDown>
                 <div className={`${classes.logoBox} ${classes.toolbar}`}>
-                  {/* <NikeLogo /> */}
+                  <Image src='/logo.svg' height={50} width={50}/>
                 </div>
               </Hidden>
               {/******* Menu Icon for mobile *******/}

@@ -27,6 +27,7 @@ export const getStaticProps = async (context) => {
 export const getStaticPaths = async () => {
   const categoryArray = ["shoes", "clothing", "gears", "men", "women", "kid's"];
   const paths = [];
+
   categoryArray.forEach(cat => {
     categoryArray.forEach(cat2 => {
       if(cat !== cat2){

@@ -17,10 +17,11 @@
     "un": "0.0.0"
   },
   "devDependencies": {
-    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "@material-ui/pickers": "^3.3.10",
     "@material-ui/system": "^4.11.3",
     "@mui-treasury/styles": "^1.13.1",
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "clsx": "^1.1.1",
     "react-material-ui-carousel": "^2.2.1",
     "sass": "^1.32.8"

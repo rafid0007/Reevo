@@ -18,7 +18,7 @@ const Index = ({products}) => {
     <Layout>
       <section style={{width:'100%'}}>
 
-        <Carousel height={300}/>    {/******************** Carousal Component ********************/}
+        <Carousel height={'25vw'}/>    {/******************** Carousal Component ********************/}
 
         <div className={homePageStyles.homeContent}>
             <ProductsHorizontalScroll title={'Trending'} itemsArr={products}/>

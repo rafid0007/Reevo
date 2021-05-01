@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Hidden } from "@material-ui/core";
 import carouselStyle from './carousel.module.scss';
+import Image from "next/image";
 
 const images = [
   "https://i.ibb.co/DfGW2JH/hero-image.jpg",
@@ -37,8 +38,16 @@ const HomeCarousel = ({ height }) => {
 
 const Item = ({height, item}) => {
   return (
-    <Paper elevation={0} style={{ height: height }}>
-        <img src={item} alt="carousel photo" className={carouselStyle.carouselImage}/>
+    <Paper elevation={0} style={{ height: height, position:'relative' }}>
+        {/*<img src={item} alt="carousel photo" className={carouselStyle.carouselImage}/>*/}
+        <Image
+            src={item}
+            className={carouselStyle.carouselImage}
+            alt='carousel photo'
+            layout='fill'
+            objectFit='cover'
+            priority
+        />
     </Paper>
   );
 };
