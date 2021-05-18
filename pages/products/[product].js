@@ -13,7 +13,7 @@ import UserReview from "../../components/productPage/userReview/userReview";
 import ImageGallery from "../../components/collectionPage/imageModal/imageGallery";
 import ProductRating from "../../components/productPage/productRating/productRating";
 import ProductPrice from "../../components/productPage/productPrice/productPrice";
-import {data} from "../api/data";
+import {data} from "../../data";
 
 import productStyles from './product.module.scss';
 

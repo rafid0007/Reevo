@@ -1,10 +1,15 @@
 import React from 'react';
 import CollectionContainer from "../../../containers/Collection/collection";
-import { data } from "../../api/data";
+import SortProvider from "../../../providers/sort/sort.provider";
+
+import { data } from "../../../data";
 
 const CollectionPage = ({products}) => {
+
   return (
-      <CollectionContainer products={products}/>
+      <SortProvider>
+        <CollectionContainer products={products}/>
+      </SortProvider>
   );
 };
 

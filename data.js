@@ -216,6 +216,7 @@ export const data = [
   },
   {
     id: "6",
+    dateAdded: 12545,
     title: "Black shirt",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -390,6 +391,7 @@ export const data = [
   },
   {
     id: "10",
+    dateAdded: 12546,
     title: "Kid's hoodie",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -432,6 +434,7 @@ export const data = [
   },
   {
     id: "11",
+    dateAdded: 12547,
     title: "Hoodie",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -474,6 +477,7 @@ export const data = [
   },
   {
     id: "12",
+    dateAdded: 12548,
     title: "Belt",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -516,6 +520,7 @@ export const data = [
   },
   {
     id: "13",
+    dateAdded: 12549,
     title: "Basketball",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -558,6 +563,7 @@ export const data = [
   },
   {
     id: "13",
+    dateAdded: 12550,
     title: "Mask",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -600,6 +606,7 @@ export const data = [
   },
   {
     id: "14",
+    dateAdded: 12551,
     title: "Space Suit",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
@@ -641,6 +648,7 @@ export const data = [
   },
   {
     id: "15",
+    dateAdded: 12552,
     title: "Hand bag",
     descriptions: [
       { key: "PRODUCT ID", value: "01" },
