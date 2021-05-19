@@ -1,15 +1,6 @@
 import React, {createContext, useEffect, useState} from "react";
 
-export const SortContex = createContext({
-  productsToView: [],
-  initializeProductsToView: () => {},
-  anchorEl: null,
-  handleClick: () => {},
-  handleClose: () => {},
-  handleSortByRelevance: () => {},
-  handleSortByHighToLow: () => {},
-  handleSortByLowToHigh: () => {},
-});
+export const SortContex = createContext();
 
 const SortProvider = ({ children }) => {
   const [productsToView, setProductsToView] = useState([]);

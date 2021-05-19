@@ -7,14 +7,14 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    minWidth: 100,
+    minWidth: 110,
       // margin: '2rem 0'
   },
 }));
 
 const CustomSelect = ({ label, optionArray, size, initialValue}) => {
   const classes = useStyles();
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState('');
 
   const handleChange = (event) => {
     setValue(event.target.value);

@@ -16,7 +16,7 @@ export const data = [
     categories: ["men", "clothing"],
     imageUrls: [
       "https://i.ibb.co/wryv2RK/tee-2-893x1024.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -60,7 +60,7 @@ export const data = [
     categories: ["men", "clothing"],
     imageUrls: [
       "https://i.ibb.co/CbJF6TX/tee-1-1000x1000.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -144,7 +144,7 @@ export const data = [
     categories: ["women", "clothing"],
     imageUrls: [
       "https://i.ibb.co/3MbVjNp/swimsuit-1-800x800.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -188,7 +188,7 @@ export const data = [
     categories: ["men", "clothing", "kid's"],
     imageUrls: [
       "https://i.ibb.co/1ZKv2jw/shorts-1-480x480.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -231,7 +231,7 @@ export const data = [
     categories: ["men", "clothing"],
     imageUrls: [
       "https://i.ibb.co/1r30VJv/shirt-1-950x950.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -275,7 +275,7 @@ export const data = [
     categories: ["men", "shoes"],
     imageUrls: [
       "https://i.ibb.co/WVw64sw/men-shoe-2000x2000.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -319,7 +319,7 @@ export const data = [
     categories: ["kid's", "clothing"],
     imageUrls: [
       "https://i.ibb.co/0sKtLNw/romper-1-320x400.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -363,7 +363,7 @@ export const data = [
     categories: ["kid's", "shoes"],
     imageUrls: [
       "https://i.ibb.co/2dy2Mwm/kid-shoe-2-900x900.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -406,7 +406,7 @@ export const data = [
     categories: ["kid's", "clothing"],
     imageUrls: [
       "https://i.ibb.co/q7781Tz/hoodie-2-800x800.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -449,7 +449,7 @@ export const data = [
     categories: ["men", "clothing"],
     imageUrls: [
       "https://i.ibb.co/6F2rj6s/hoodie-1-500x500.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -492,7 +492,7 @@ export const data = [
     categories: ["men", "gears"],
     imageUrls: [
       "https://i.ibb.co/2kQjQ95/gear-4-belt-2000x2000.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -535,7 +535,7 @@ export const data = [
     categories: ["kid's", "men", "gears"],
     imageUrls: [
       "https://i.ibb.co/WvyS9d7/gear-5-795x797.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -578,7 +578,7 @@ export const data = [
     categories: ["kid's", "men", "gears"],
     imageUrls: [
       "https://i.ibb.co/cFBFnLt/gear-3-mask-665x652.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -620,7 +620,7 @@ export const data = [
     categories: ["kid's", "men", "women", "gears"],
     imageUrls: [
       "https://i.ibb.co/WfbTcDp/gear-1-1600x1600.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
@@ -663,7 +663,7 @@ export const data = [
     categories: ["women", "gears"],
     imageUrls: [
       "https://i.ibb.co/7KGd6Rq/gear-2-bag-1000x1000.png",
-      "https://i.ibb.co/7kznZ8g/white-tee-2.jpg",
+      "https://i.ibb.co/Tm0bpM8/jackets.png",
       "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
     ],
     reviews: [
