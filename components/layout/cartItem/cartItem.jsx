@@ -6,39 +6,32 @@ import IconButton from "@material-ui/core/IconButton";
 import cartItemStyles from "./cartItem.module.scss";
 import { Typography } from "@material-ui/core";
 
-const CartItem = ({
-  itemId,
-  productImg,
-  productName,
-  productPriceRate,
-  productQuantity,
-  incrementQuantity,
-  decrementQuantity,
-  deleteItem,
-}) => {
+const ArrowStyle = { fontSize: "1.5rem", cursor: "pointer" };
+
+const CartItem = () => {
   return (
     <div className={cartItemStyles.cartItem}>
       <div className={cartItemStyles.imgContainer}>
-        <img src={productImg} alt={productName} />
+        <img src="https://i.ibb.co/Tm0bpM8/jackets.png" alt='cart image' />
       </div>
       <div className={cartItemStyles.cartPriceAndTitle}>
-        <h5>{productName}</h5>
-        <h6>৳ {productPriceRate}.00</h6>
+        <h5>cart item</h5>
+        <h6>৳ 500</h6>
       </div>
       <div className={cartItemStyles.quantity}>
-        <IconButton onClick={() => decrementQuantity(itemId)}>
-          <ArrowBackIosIcon style={{ fontSize: "1.6rem", cursor: "pointer" }} />
+        <IconButton>
+          <ArrowBackIosIcon style={ArrowStyle} />
         </IconButton>
-        <Typography>{productQuantity}</Typography>
-        <IconButton onClick={() => incrementQuantity(itemId)}>
+        <Typography>2</Typography>
+        <IconButton>
           <ArrowForwardIosIcon
-            style={{ fontSize: "1.6rem", cursor: "pointer" }}
+            style={ArrowStyle}
           />
         </IconButton>
       </div>
       <div className={cartItemStyles.totalPrice}>
-        <h4>৳ {productPriceRate * productQuantity}.00</h4>
-        <IconButton onClick={() => deleteItem(itemId)}>
+        <h4>৳ 500</h4>
+        <IconButton>
           <DeleteIcon style={{ fontSize: "2rem", cursor: "pointer" }} />
         </IconButton>
       </div>

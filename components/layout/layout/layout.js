@@ -1,9 +1,9 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
 import {useRouter} from "next/router";
-import CartContext from "../../../contexts/CartContext";
+// import CartContext from "../../../contexts/CartContext";
 
 // material ui imports
 import AppBar from "@material-ui/core/AppBar";
@@ -32,24 +32,24 @@ const Layout = ({ window, children, hideSidenav }) => {
   // console.log('*********', router);
 
   // cart item count start
-  const [cartItemCount, setCartItemCount] = useState(0);
-  const getCartItemCount = () => {
-    const cart = JSON.parse(localStorage.getItem("noobshit_cart"));
-    let itemCount = 0;
-    if (cart) {
-      if (cart.length > 0) {
-        itemCount = cart.length;
-      }
-    }
-    return itemCount;
-  };
+  // const [cartItemCount, setCartItemCount] = useState(0);
+  // const getCartItemCount = () => {
+  //   const cart = JSON.parse(localStorage.getItem("noobshit_cart"));
+  //   let itemCount = 0;
+  //   if (cart) {
+  //     if (cart.length > 0) {
+  //       itemCount = cart.length;
+  //     }
+  //   }
+  //   return itemCount;
+  // };
 
-  const refreshCartItemCount = () => {
-    setCartItemCount(getCartItemCount());
-  };
-  useEffect(() => {
-    refreshCartItemCount();
-  }, []);
+  // const refreshCartItemCount = () => {
+  //   setCartItemCount(getCartItemCount());
+  // };
+  // useEffect(() => {
+  //   refreshCartItemCount();
+  // }, []);
   // cart item count end
 
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -106,12 +106,7 @@ const Layout = ({ window, children, hideSidenav }) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Fragment>
-      <CartContext.Provider
-        value={{
-          refreshCartItemCount,
-        }}
-      >
+    <>
         <div className={classes.root}>
           <CssBaseline />
 
@@ -162,7 +157,7 @@ const Layout = ({ window, children, hideSidenav }) => {
               {/* the gap between search bar and options */}
               <div className={classes.grow} />{" "}
               {/******* Cart Icon with drawer onClick *****/}
-              <CartDrawer cartItemCount={cartItemCount} />
+              <CartDrawer />
               {/******* User Profile Icon *******/}
               <Link href='/login'>
                 <a>
@@ -231,8 +226,7 @@ const Layout = ({ window, children, hideSidenav }) => {
             {children}
           </main>
         </div>
-      </CartContext.Provider>
-    </Fragment>
+    </>
   );
 };
 
