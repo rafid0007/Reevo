@@ -1,18 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import clsx from 'clsx';
 
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Badge from "@material-ui/core/Badge";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import IconButton from "@material-ui/core/IconButton";
 
-import CartItem from "../cartItem/cartItem";
-import Grid from "@material-ui/core/Grid";
 import CartContent from "./cartContent";
+import {CartContext} from "../../../providers/cart/cart.provider";
 
 const useStyles = makeStyles((theme) => ({
   list: {
@@ -30,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 /****************************  Material-Ui Component **************************************/
 
 export default function SwipeableTemporaryDrawer() {
+  const {cartItemsCount} = useContext(CartContext);
   const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
@@ -57,8 +54,7 @@ export default function SwipeableTemporaryDrawer() {
     >
 
       {/****************************** Cart content ******************************/}
-
-      <CartContent/>
+        <CartContent/>
     </div>
   );
 
@@ -73,7 +69,7 @@ export default function SwipeableTemporaryDrawer() {
               color="inherit"
               style={{marginRight:'1.5rem'}}
           >
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={cartItemsCount} color="secondary">
               <LocalMallOutlinedIcon />
             </Badge>
           </IconButton>

@@ -62,7 +62,8 @@ const useStyles = makeStyles((theme) => ({
     width: `calc(${drawerWidth}px - 24px)`, // 24px margin on the left by default in the appbar component
     paddingRight: '24px', // to nullify 24px padding on the left
     display: "flex",
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   logoBoxHover: {
     cursor: 'pointer'

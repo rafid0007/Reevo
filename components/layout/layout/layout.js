@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {useRouter} from "next/router";
-// import CartContext from "../../../contexts/CartContext";
+
 
 // material ui imports
 import AppBar from "@material-ui/core/AppBar";
@@ -22,6 +22,7 @@ import CartDrawer from "../CartDrawer/cartDrawer";
 
 import SearchBar from "../searchBar/searchBar";
 import layoutStyles from "./layout.styles";
+
 
 const Layout = ({ window, children, hideSidenav }) => {
   const classes = layoutStyles();
@@ -118,10 +119,12 @@ const Layout = ({ window, children, hideSidenav }) => {
             className={classes.appBar}
           >
             <Toolbar>
-              {/******* Company Logo *******/}
+              {/******* Company Logo Desktop *******/}
               <Hidden xsDown>
                 <div className={`${classes.logoBox} ${classes.toolbar}`}>
-                  <Image src='/logo.svg' height={50} width={50}/>
+                  <Link href='/'><a>
+                    <Image src='/logo.svg' height={50} width={50}/>
+                  </a></Link>
                 </div>
               </Hidden>
               {/******* Menu Icon for mobile *******/}
@@ -157,7 +160,7 @@ const Layout = ({ window, children, hideSidenav }) => {
               {/* the gap between search bar and options */}
               <div className={classes.grow} />{" "}
               {/******* Cart Icon with drawer onClick *****/}
-              <CartDrawer />
+                <CartDrawer />
               {/******* User Profile Icon *******/}
               <Link href='/login'>
                 <a>

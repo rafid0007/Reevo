@@ -27,10 +27,11 @@ export const getStaticProps = async (context) => {
   };
 };
 
+
 export const getStaticPaths = async () => {
   const paths = ["shoes", "clothing", "gears", "men", "women", "kid's"].map(
     (cat) => ({
-      params: { category: cat},
+      params: { category: cat },
 
     })
   );

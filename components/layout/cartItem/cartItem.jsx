@@ -1,38 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import cartItemStyles from "./cartItem.module.scss";
 import { Typography } from "@material-ui/core";
+import { CartContext } from "../../../providers/cart/cart.provider";
 
 const ArrowStyle = { fontSize: "1.5rem", cursor: "pointer" };
 
-const CartItem = () => {
+const CartItem = ({item}) => {
+  const {name, price, imageUrl, quantity} = item;
+  const { addItem, removeItem, clearItemFromCart } = useContext(CartContext);
   return (
     <div className={cartItemStyles.cartItem}>
       <div className={cartItemStyles.imgContainer}>
-        <img src="https://i.ibb.co/Tm0bpM8/jackets.png" alt='cart image' />
+        <img src={imageUrl} alt={name} />
       </div>
       <div className={cartItemStyles.cartPriceAndTitle}>
-        <h5>cart item</h5>
-        <h6>৳ 500</h6>
+        <h5>{name}</h5>
+        <h6>৳ {price}</h6>
       </div>
       <div className={cartItemStyles.quantity}>
-        <IconButton>
-          <ArrowBackIosIcon style={ArrowStyle} />
+        <IconButton onClick={() => removeItem(item)}>
+          <ArrowBackIosIcon style={ArrowStyle}/>
         </IconButton>
-        <Typography>2</Typography>
-        <IconButton>
-          <ArrowForwardIosIcon
-            style={ArrowStyle}
-          />
+        <Typography>{quantity}</Typography>
+        <IconButton  onClick={() => addItem(item)}>
+          <ArrowForwardIosIcon style={ArrowStyle}/>
         </IconButton>
       </div>
       <div className={cartItemStyles.totalPrice}>
-        <h4>৳ 500</h4>
-        <IconButton>
-          <DeleteIcon style={{ fontSize: "2rem", cursor: "pointer" }} />
+        <h4>৳ {price * quantity}</h4>
+        <IconButton onClick={() => clearItemFromCart(item)}>
+          <DeleteIcon style={{ fontSize: "2rem", cursor: "pointer" }}/>
         </IconButton>
       </div>
     </div>
