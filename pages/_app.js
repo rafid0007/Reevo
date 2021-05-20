@@ -20,7 +20,7 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>NoobShit Commerce</title>
+        <title>Reevo</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
         <CartProvider>

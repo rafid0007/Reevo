@@ -4,6 +4,7 @@ import Carousel from "../components/homePage/carousel/carousel";
 import homePageStyles from "./index.module.scss";
 import ProductsHorizontalScroll from "../components/homePage/productsHorizontalScroll/productsHorizontalScroll";
 import {data} from "../data";
+import StartupDialog from "../components/startupDialog/startupDialog";
 
 export const getStaticProps = async (context) => {
     const products = data;
@@ -25,8 +26,9 @@ const Index = ({products}) => {
             <ProductsHorizontalScroll title={'Hot Products'} itemsArr={products}/>
             <ProductsHorizontalScroll title={'Latest'} itemsArr={products}/>
         </div>
-
+        <StartupDialog/>
       </section>
+
     </Layout>
   );
 };
