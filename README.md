@@ -2,7 +2,7 @@
 
 ## E-commerce shop
 
-### Link: <https://ciao1.herokuapp.com/>
+### Link: <https://reevo.vercel.app/>
 
 ### Technology Stack:
   * React (Next.js)
