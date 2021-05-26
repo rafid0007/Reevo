@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import Image from "next/image";
 
-import styles from './imageGallery.module.scss';
+import { makeStyles } from '@material-ui/core/styles';
 import Dialog from "@material-ui/core/Dialog";
-import classes from "../../../containers/Login/Login.module.css";
 import CloseIcon from "@material-ui/icons/Close";
 import {IconButton} from "@material-ui/core";
+
+import styles from './imageGallery.module.scss';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -50,41 +48,29 @@ export const ImageGallery = ({imgArr}) => {
     <>
         {/******************************* Main Content Start ********************************/}
 
-        <div className={styles.imgContainer}>
-            <img src={imgArr[currentImage]} alt="product" onClick={()=>handleOpen()}/>
+        <div className={styles.imgContainer} onClick={() => handleOpen()}>
+            <Image src={imgArr[currentImage]} alt='product' layout='fill' objectFit='contain'/>
         </div>
 
-        <div className={styles.imgThumbs}>
+        <div className={styles.thumbs}>
             {
                 imgArr.map((img, i) => (
-                    <img key={i} src={img} alt="product thumbnail" onClick={()=>{setCurrentImage(i)}}/>
+                    <div key={i} className={styles.thumbContainer} onClick={() => setCurrentImage(i)}>
+                        <div className={styles.thumbWrapper}>
+                            <Image src={img} alt="product thumbnail" layout='fill'/>
+                        </div>
+                    </div>
                 ))
             }
         </div>
         {/******************************* Main Content End ********************************/}
 
-      {/*<Modal*/}
-      {/*  aria-labelledby="transition-modal-title"*/}
-      {/*  aria-describedby="transition-modal-description"*/}
-      {/*  className={classes.modal}*/}
-      {/*  open={open}*/}
-      {/*  onClose={handleClose}*/}
-      {/*  closeAfterTransition*/}
-      {/*  BackdropComponent={Backdrop}*/}
-      {/*  BackdropProps={{*/}
-      {/*    timeout: 500,*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  <Fade in={open}>*/}
-      {/*    <div className={classes.paper}>*/}
-      {/*        <img src={imgArr[currentImage]} alt="product full image" className={classes.fullImage}/>*/}
-      {/*    </div>*/}
-      {/*  </Fade>*/}
-      {/*</Modal>*/}
-
       <Dialog open={open} onClose={handleClose}>
-          <div style={{position:'relative', overflow:'hidden'}}>
-              <img src={imgArr[currentImage]} alt="product full image" className={classes.fullImage}/>
+          <div className={styles.dialogImageContainer}>
+              {/*<img src={imgArr[currentImage]} alt="product full image" className={classes.fullImage}/>*/}
+              <div className={styles.fullImageWrapper}>
+                  <Image src={imgArr[currentImage]} alt='product full Image' layout='fill' objectFit='contain'/>
+              </div>
             <IconButton className={classes.closeIcon} onClick={() => handleClose()}> {/* close icon */}
                 <CloseIcon/>
             </IconButton>

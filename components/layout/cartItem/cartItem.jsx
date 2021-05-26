@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Image from 'next/image';
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -15,7 +16,7 @@ const CartItem = ({item}) => {
   return (
     <div className={cartItemStyles.cartItem}>
       <div className={cartItemStyles.imgContainer}>
-        <img src={imageUrl} alt={name} />
+          <Image src={imageUrl} alt={name} layout='fill' objectFit='cover'/>
       </div>
       <div className={cartItemStyles.cartPriceAndTitle}>
         <h5>{name}</h5>

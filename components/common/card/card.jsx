@@ -9,17 +9,11 @@ const Card = ({id,title,priceCurrent,imageUrls}) => {
         <Link href={`/products/${id}`}>
             <a>
                 <div className={CardStyles.card}>
-                    <div className={CardStyles.imgContainer} style={{ position:'relative' }}>
-                        <img className={CardStyles.cardImage} src={imageUrls[0]} alt="card photo"/>
-                        {/*<Image*/}
-                        {/*    src={imageUrls[0]}*/}
-                        {/*    className={CardStyles.cardImage}*/}
-                        {/*    alt="card photo"*/}
-                        {/*    layout='fixed'*/}
-                        {/*    // objectFit='cover'*/}
-                        {/*    height={'100%'}*/}
-                        {/*    width={'100%'}*/}
-                        {/*/>*/}
+                    <div className={CardStyles.imgContainer}>
+                        <Image src={imageUrls[0]} alt="card photo" layout='fill' objectFit='contain'/>
+                        {/*<div style={{ position: 'relative', width: '100%', height: '100%'}}>*/}
+                        {/*    <Image src={imageUrls[0]} alt={title} layout='fill'/>*/}
+                        {/*</div>*/}
                     </div>
 
                     <div className={CardStyles.cardContent}>

@@ -25,7 +25,7 @@ const cartData = {
 const ProductContainer = ({product}) => {
     const {id, title, priceCurrent, imageUrls} = product;
     const {addItem, cartItems} = useContext(CartContext);
-    console.log('cartItems:', cartItems);
+    // console.log('cartItems:', cartItems);
     return (
         <Layout>
 

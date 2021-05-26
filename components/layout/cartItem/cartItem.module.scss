@@ -15,10 +15,7 @@
 
 .imgContainer {
   overflow: hidden;
-  img{
-    height: auto;
-    width: 100%;
-  }
+  position: relative;
 }
 
 .cartPriceAndTitle {
@@ -41,6 +38,7 @@
     text-overflow: ellipsis;
   }
   h6{
+    margin-top: 1rem;
     font-weight:bold;
   }
 }

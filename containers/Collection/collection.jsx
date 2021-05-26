@@ -11,7 +11,7 @@ const Collection = ({ products }) => {
 
   const {initializeProductsToView } = useContext(SortContex);
   useEffect(() => {
-    console.log('setting initial products!!!', products);
+    // console.log('setting initial products!!!', products);
     initializeProductsToView(products);
   },[products])
 

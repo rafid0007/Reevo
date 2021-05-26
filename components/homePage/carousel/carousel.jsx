@@ -39,7 +39,6 @@ const HomeCarousel = ({ height }) => {
 const Item = ({height, item}) => {
   return (
     <Paper elevation={0} style={{ height: height, position:'relative' }}>
-        {/*<img src={item} alt="carousel photo" className={carouselStyle.carouselImage}/>*/}
         <Image
             src={item}
             className={carouselStyle.carouselImage}

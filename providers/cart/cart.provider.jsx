@@ -31,7 +31,7 @@ const CartProvider = ({ children }) => {
     const data = localStorage.getItem("reevoCartData");
     if (data) {
       setCartItems(JSON.parse(data));
-      console.log("got local data");
+      // console.log("got local data");
     }
   }, []);
 
@@ -39,7 +39,7 @@ const CartProvider = ({ children }) => {
     setCartItemsCount(getCartItemsCount(cartItems));
     setCartTotal(getCartTotal(cartItems));
     localStorage.setItem("reevoCartData", JSON.stringify(cartItems));
-    console.log("set local data");
+    // console.log("set local data");
   }, [cartItems]);
 
   return (

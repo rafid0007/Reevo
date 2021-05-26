@@ -24,7 +24,7 @@ const SortProvider = ({ children }) => {
       return b.dateAdded - a.dateAdded;
     });
 
-    console.log("Sort by relevance fired");
+    // console.log("Sort by relevance fired");
     handleClose();
   };
 
@@ -33,7 +33,7 @@ const SortProvider = ({ children }) => {
       return b.priceCurrent - a.priceCurrent;
     });
 
-    console.log("Sort by High to Low fired");
+    // console.log("Sort by High to Low fired");
     handleClose();
   };
 
@@ -42,14 +42,9 @@ const SortProvider = ({ children }) => {
       return a.priceCurrent - b.priceCurrent;
     });
 
-    console.log("Sort by low to high fired");
+    // console.log("Sort by low to high fired");
     handleClose();
   };
-
-  useEffect(() => {
-    console.log('sort provider fired');
-    console.log('productsToView:', productsToView);
-  })
 
   return (
     <SortContex.Provider

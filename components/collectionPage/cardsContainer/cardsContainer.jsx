@@ -1,12 +1,10 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Card from "../../common/card/card";
-
-import styles from './cardsContainer.module.scss';
-import {SortContex} from "../../../providers/sort/sort.provider";
+import { SortContex } from "../../../providers/sort/sort.provider";
+import styles from "./cardsContainer.module.scss";
 
 const CardsContainer = () => {
-
-  const {productsToView} = useContext(SortContex);
+  const { productsToView } = useContext(SortContex);
 
   return (
     <div className={styles.gridInner}>
