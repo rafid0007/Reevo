@@ -1,1 +1,12 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# Reevo
+
+## E-commerce shop
+
+### Link: <https://reevo.vercel.app/>
+
+### Technology Stack:
+  * React (Next.js)
+  * Scss
+  * Material-UI
+  * Stripe
+  * Django-rest-framework
