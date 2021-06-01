@@ -1,0 +1,1 @@
+export const cartItemConst = "REEVO_CART_DATA";

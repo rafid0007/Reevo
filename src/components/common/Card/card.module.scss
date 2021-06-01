@@ -1,0 +1,76 @@
+@import "../../../styles/variables";
+
+.card {
+  min-width: 20rem;
+  height: 22vw;
+  background-color: $color-white;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s;
+  &:hover {
+    box-shadow: 0.5rem 1rem 2rem rgba(0,0,0, 0.1);
+  }
+  //@media (max-width: 1280px) {
+  //  height: 30vw;
+  //}
+  //@media (max-width: 900px) {
+  //  height: 50vw;
+  //}
+  //@media (max-width: 600px) {
+  //  height: 65vw;
+  //}
+
+
+}
+
+.imgContainer {
+  width: 100%;
+  height: 66.67%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1rem;
+  position: relative;
+}
+
+.cardImage {
+    //display: block;
+    width: 100%;
+    height: 100%;
+    //object-fit: contain;
+  }
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem;
+  text-align: center;
+  height: 33.33%;
+  h6 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $color-text-secondary;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  h5 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    color: $color-text-primary;
+    span {
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+  }
+}
