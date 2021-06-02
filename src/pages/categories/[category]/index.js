@@ -1,6 +1,5 @@
 import React from "react";
 import CategoryPage from "../../../components/CategoryPage";
-import SortProvider from "../../../providers/Sort";
 import Layout from "../../../components/Layout";
 import { data } from "../../../consts/data";
 
@@ -30,9 +29,7 @@ export const getStaticProps = async (context) => {
 
 const Category = ({ products }) => (
   <Layout>
-    <SortProvider>
       <CategoryPage products={products} />
-    </SortProvider>
   </Layout>
 );
 

@@ -9,7 +9,17 @@ import {
 } from "./cart.utils";
 import {cartItemConst} from "../../consts/localstorage";
 
-export const CartContext = createContext(null);
+
+export const CartContext = createContext({
+    onceRendered: false,
+    toggleOnceRendered: () => {},
+    cartItems: [],
+    addItem: () => {},
+    removeItem: () => {},
+    clearItemFromCart: () => {},
+    cartItemsCount: 0,
+    cartTotal: 0
+});
 
 const CartProvider = ({ children }) => {
   //  temp

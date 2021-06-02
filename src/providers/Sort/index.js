@@ -1,8 +1,10 @@
 import React, {createContext, useState} from "react";
+import {data} from "../../consts/data";
 
 export const SortContex = createContext({});
 
 const SortProvider = ({ children }) => {
+  const [allProducts, setAllProducts] = useState(data);
   const [productsToView, setProductsToView] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -49,6 +51,7 @@ const SortProvider = ({ children }) => {
   return (
     <SortContex.Provider
       value={{
+        allProducts,
         productsToView,
         anchorEl,
         initializeProductsToView,

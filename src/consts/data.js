@@ -13,7 +13,7 @@ export const data = [
     priceCurrent: 450,
     priceBefore: 550,
     Available: true,
-    categories: ["men", "clothing"],
+    categories: ["men", "clothing", "trending"],
     imageUrls: [
       "https://i.ibb.co/wryv2RK/tee-2-893x1024.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -101,52 +101,8 @@ export const data = [
     priceCurrent: 4500,
     priceBefore: 4750,
     Available: true,
-    categories: ["women", "shoes", "category3"],
+    categories: ["women", "shoes", "latest"],
     imageUrls: ["https://i.ibb.co/X87Q2wH/women-shoes-1-882x1024.png"],
-    reviews: [
-      {
-        user: "Gonu Molla",
-        rating: 2,
-        date: "3 April 2021",
-        userReview: "The quality is not good enough.",
-      },
-      {
-        user: "Tanvir",
-        rating: 5,
-        date: "5 April 2021",
-        userReview: "Long lasting product.",
-      },
-      {
-        user: "Arko",
-        rating: 4,
-        date: "13 April 2021",
-        userReview: "Good Product.",
-      },
-    ],
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["Black", "White", "Blue", "Pink"],
-  },
-  {
-    id: "4",
-    dateAdded:12348,
-
-    title: "Swimsuit",
-    descriptions: [
-      { key: "PRODUCT ID", value: "01" },
-      { key: "MATERIAL", value: "Cotton" },
-      { key: "BRAND", value: "Yellow" },
-    ],
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid animi consequuntur distinctio dolor dolore dolores est fugiat hic, illum inventore ipsum magnam maxime, molestiae mollitia placeat quam, quos ratione sit vitae. Ab alias asperiores aut blanditiis consequatur eius explicabo harum ipsa nam nisi nostrum possimus praesentium quia, quisquam quo quos repellat reprehenderit suscipit ullam utpak.",
-    priceCurrent: 9500,
-    priceBefore: 9950,
-    Available: true,
-    categories: ["women", "clothing"],
-    imageUrls: [
-      "https://i.ibb.co/3MbVjNp/swimsuit-1-800x800.png",
-      "https://i.ibb.co/Tm0bpM8/jackets.png",
-      "https://i.ibb.co/hdjbbSC/grey-tee-1.png",
-    ],
     reviews: [
       {
         user: "Gonu Molla",
@@ -185,7 +141,7 @@ export const data = [
     priceCurrent: 800,
     priceBefore: 950,
     Available: true,
-    categories: ["men", "clothing", "kid's"],
+    categories: ["men", "clothing", "kid's", "latest"],
     imageUrls: [
       "https://i.ibb.co/1ZKv2jw/shorts-1-480x480.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -228,7 +184,7 @@ export const data = [
     priceCurrent: 1500,
     priceBefore: 1850,
     Available: true,
-    categories: ["men", "clothing"],
+    categories: ["men", "clothing", "trending"],
     imageUrls: [
       "https://i.ibb.co/1r30VJv/shirt-1-950x950.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -272,7 +228,7 @@ export const data = [
     priceCurrent: 3500,
     priceBefore: 4550,
     Available: true,
-    categories: ["men", "shoes"],
+    categories: ["men", "shoes", "hot"],
     imageUrls: [
       "https://i.ibb.co/WVw64sw/men-shoe-2000x2000.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -316,7 +272,7 @@ export const data = [
     priceCurrent: 1000,
     priceBefore: 1200,
     Available: true,
-    categories: ["kid's", "clothing"],
+    categories: ["kid's", "clothing", "latest"],
     imageUrls: [
       "https://i.ibb.co/0sKtLNw/romper-1-320x400.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -360,7 +316,7 @@ export const data = [
     priceCurrent: 700,
     priceBefore: 900,
     Available: true,
-    categories: ["kid's", "shoes"],
+    categories: ["kid's", "shoes", "hot"],
     imageUrls: [
       "https://i.ibb.co/2dy2Mwm/kid-shoe-2-900x900.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -403,7 +359,7 @@ export const data = [
     priceCurrent: 1600,
     priceBefore: 1700,
     Available: true,
-    categories: ["kid's", "clothing"],
+    categories: ["kid's", "clothing", "latest"],
     imageUrls: [
       "https://i.ibb.co/q7781Tz/hoodie-2-800x800.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -446,7 +402,7 @@ export const data = [
     priceCurrent: 1000,
     priceBefore: 1100,
     Available: true,
-    categories: ["men", "clothing"],
+    categories: ["men", "clothing", "latest"],
     imageUrls: [
       "https://i.ibb.co/6F2rj6s/hoodie-1-500x500.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -489,7 +445,7 @@ export const data = [
     priceCurrent: 400,
     priceBefore: 500,
     Available: true,
-    categories: ["men", "gears"],
+    categories: ["men", "gears", "hot"],
     imageUrls: [
       "https://i.ibb.co/2kQjQ95/gear-4-belt-2000x2000.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -532,7 +488,7 @@ export const data = [
     priceCurrent: 3000,
     priceBefore: 3200,
     Available: true,
-    categories: ["kid's", "men", "gears"],
+    categories: ["kid's", "men", "gears", "hot"],
     imageUrls: [
       "https://i.ibb.co/WvyS9d7/gear-5-795x797.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -575,7 +531,7 @@ export const data = [
     priceCurrent: 100,
     priceBefore: 120,
     Available: true,
-    categories: ["kid's", "men", "gears"],
+    categories: ["kid's", "men", "gears", "trending"],
     imageUrls: [
       "https://i.ibb.co/cFBFnLt/gear-3-mask-665x652.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -617,7 +573,7 @@ export const data = [
     priceCurrent: 40000,
     priceBefore: 62000,
     Available: true,
-    categories: ["kid's", "men", "women", "gears"],
+    categories: ["kid's", "men", "women", "gears", "trending"],
     imageUrls: [
       "https://i.ibb.co/WfbTcDp/gear-1-1600x1600.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",
@@ -660,7 +616,7 @@ export const data = [
     priceCurrent: 10000,
     priceBefore: 12000,
     Available: true,
-    categories: ["women", "gears"],
+    categories: ["women", "gears", "trending"],
     imageUrls: [
       "https://i.ibb.co/7KGd6Rq/gear-2-bag-1000x1000.png",
       "https://i.ibb.co/Tm0bpM8/jackets.png",

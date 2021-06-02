@@ -1,17 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from '../consts/theme';
+import React from "react";
+import PropTypes from "prop-types";
+import Head from "next/head";
+import { ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import theme from "../consts/theme";
 import CartProvider from "../providers/Cart";
+import SortProvider from "../providers/Sort";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
+    const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
@@ -21,14 +22,19 @@ export default function MyApp(props) {
     <React.Fragment>
       <Head>
         <title>Reevo</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
       </Head>
-        <CartProvider>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Component {...pageProps} />
-            </ThemeProvider>
-        </CartProvider>
+      <CartProvider>
+        <SortProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </SortProvider>
+      </CartProvider>
     </React.Fragment>
   );
 }

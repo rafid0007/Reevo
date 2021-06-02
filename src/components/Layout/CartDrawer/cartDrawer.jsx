@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     width: 500,
     height: '100%',
     [theme.breakpoints.down('xs')]: {
-      width: 300
+      width: 280
     }
   },
   fullList: {

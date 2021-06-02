@@ -39,4 +39,8 @@
   height: 90vh;
   width: 90vh;
   position: relative;
+  @media (max-width: 960px) {
+    height: 90vw;
+    width: 90vw;
+  }
 }

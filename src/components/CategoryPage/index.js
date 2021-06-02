@@ -9,12 +9,12 @@ import {SortContex} from "../../providers/Sort";
 import styles from "./CategoryPage.module.scss";
 
 const CategoryPage = ({ products }) => {
-  const {initializeProductsToView } = useContext(SortContex);
+  const { initializeProductsToView } = useContext(SortContex);
 
   useEffect(() => {
     // console.log('setting initial products!!!', products);
     initializeProductsToView(products);
-  },[products])
+  },[products]);
 
   return (
       <div className={styles.gridOuter}>
@@ -22,7 +22,6 @@ const CategoryPage = ({ products }) => {
           <ActionBar/>
           <CardsContainer/>
         </div>
-
         <div>
           <Filter />
         </div>
