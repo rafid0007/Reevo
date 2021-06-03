@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
       minWidth: '5rem',
       "&:nth-child(2)": {
           marginTop: '2rem',
+          marginBottom: '2rem',
       }
   },
 }));
@@ -64,6 +65,7 @@ const Filter = (props) => {
           label="minimum price"
           name="minPrice"
           color="secondary"
+          variant="outlined"
           onChange={handleChange}
           className = {classes.textField}
         />
@@ -72,10 +74,44 @@ const Filter = (props) => {
           value={filter.maxPrice}
           placeholder="maximum price"
           label="maximum price"
+          variant="outlined"
           name="maxPrice"
           color="secondary"
           onChange={handleChange}
           className = {classes.textField}
+        />
+          <FormControlLabel
+          control={
+            <Checkbox
+              checked={filter.clothing}
+              onChange={handleCheck}
+              name="clothing"
+              color="secondary"
+            />
+          }
+          label="Clothing"
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={filter.shoes}
+              onChange={handleCheck}
+              name="shoes"
+              color="secondary"
+            />
+          }
+          label="Shoes"
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={filter.gears}
+              onChange={handleCheck}
+              name="gears"
+              color="secondary"
+            />
+          }
+          label="Gears"
         />
         <FormControlLabel
           control={
@@ -110,40 +146,7 @@ const Filter = (props) => {
           }
           label="Kid's"
         />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={filter.clothing}
-              onChange={handleCheck}
-              name="clothing"
-              color="secondary"
-            />
-          }
-          label="Clothing"
-        />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={filter.shoes}
-              onChange={handleCheck}
-              name="shoes"
-              color="secondary"
-            />
-          }
-          label="Shoes"
-        />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={filter.gears}
-              onChange={handleCheck}
-              name="gears"
-              color="secondary"
-            />
-          }
-          label="Gears"
-        />
-          <Button type='submit' color='secondary' variant='contained'>Filter</Button>
+          <Button type='submit' color='secondary' variant='contained' fullWidth>Filter</Button>
       </form>
   );
 };
