@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import styles from "./actionBar.module.scss";
 import SortBox from "../SortBox/sortBox";
-import { SortContex } from "../../../providers/Sort";
+import { SortContext } from "../../../providers/Sort";
 
 const ActionBar = ({ backgroundColor = "#fff" }) => {
-  const { productsToView } = useContext(SortContex);
+  const { productsToView } = useContext(SortContext);
   const number = productsToView.length;
 
   return (

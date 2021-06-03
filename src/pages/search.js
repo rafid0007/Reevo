@@ -12,14 +12,14 @@ const Category = () => {
 
   useEffect(() => {
     if (query) {
-      setProducts( data.filter(item => item.title.toLowerCase().includes(query.toLowerCase())) )
+      setProducts( data.filter(item => item.title.toLowerCase().includes(query.toLowerCase()) || item.categories.includes(query.toLowerCase())) )
     }
   },[query, data])
 
   return (
     <Layout>
       {
-       products? <CategoryPage products={products}  /> : <CircularProgress color='secondary'/>
+       products? <CategoryPage products={products}  /> : <CircularProgress style={{margin: 'auto auto'}} color='secondary'/>
       }
     </Layout>
   );

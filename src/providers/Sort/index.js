@@ -1,16 +1,19 @@
 import React, {createContext, useState} from "react";
 import {data} from "../../consts/data";
+import {filterProducts} from "./utils";
 
-export const SortContex = createContext({});
+export const SortContext = createContext({});
 
 const SortProvider = ({ children }) => {
   const [allProducts, setAllProducts] = useState(data);
   const [productsToView, setProductsToView] = useState([]);
+  const [products, setProducts] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const initializeProductsToView = item => {
-    setProductsToView(item);
-    handleSortByRelevance();
+      setProductsToView(item);
+      setProducts(item);
+      handleSortByRelevance();
   }
 
   const handleClick = (event) => {
@@ -48,8 +51,13 @@ const SortProvider = ({ children }) => {
     handleClose();
   };
 
+  const handleFilter = (filter) => {
+      setProductsToView(filterProducts(products, filter));
+
+  };
+
   return (
-    <SortContex.Provider
+    <SortContext.Provider
       value={{
         allProducts,
         productsToView,
@@ -60,10 +68,11 @@ const SortProvider = ({ children }) => {
         handleSortByRelevance,
         handleSortByHighToLow,
         handleSortByLowToHigh,
+        handleFilter,
       }}
     >
       {children}
-    </SortContex.Provider>
+    </SortContext.Provider>
   );
 };
 

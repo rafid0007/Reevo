@@ -39,9 +39,7 @@ export const getStaticProps = async (context) => {
 
 const SubCategory = ({ products }) => (
   <Layout>
-    <SortProvider>
       <CategoryPage products={products} />
-    </SortProvider>
   </Layout>
 );
 

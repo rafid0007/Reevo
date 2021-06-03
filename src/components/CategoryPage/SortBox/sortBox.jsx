@@ -2,7 +2,7 @@ import Button from "@material-ui/core/Button";
 import {Sort} from "@material-ui/icons";
 import {Menu, MenuItem} from "@material-ui/core";
 import {useContext} from "react";
-import {SortContex} from "../../../providers/Sort";
+import {SortContext} from "../../../providers/Sort";
 
 const SortBox = () => {
 
@@ -11,8 +11,8 @@ const SortBox = () => {
         handleClick, handleClose,
         handleSortByRelevance,
         handleSortByHighToLow,
-        handleSortByLowToHigh
-    } = useContext(SortContex);
+        handleSortByLowToHigh,
+    } = useContext(SortContext);
 
     return (
     <>
