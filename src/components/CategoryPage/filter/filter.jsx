@@ -1,31 +1,8 @@
 import React, {useContext, useState} from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { Checkbox, FormControlLabel, TextField } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {SortContext} from "../../../providers/Sort";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: (props) => props.bgColor,
-    fontSize: "1.6rem",
-    display: "flex",
-      alignItems: 'flex-start',
-    flexDirection: "column",
-    borderRadius: "5px",
-    padding: "1.2rem 1rem",
-    height: "100vh", //temporary
-    [theme.breakpoints.down("xs")]: {
-      display: "none",
-    },
-  },
-  textField: {
-      minWidth: '5rem',
-      "&:nth-child(2)": {
-          marginTop: '2rem',
-          marginBottom: '2rem',
-      }
-  },
-}));
+import {useStyles} from "./filter.styles";
 
 const Filter = (props) => {
     const {handleFilter} = useContext(SortContext);
@@ -46,7 +23,7 @@ const Filter = (props) => {
     console.log("e.target:", e.target);
     setFilter({ ...filter, [name]: parseInt(value) });
   };
-  const handleCheck = (e) => {
+  const handleCheckBox = (e) => {
     setFilter({ ...filter, [e.target.name]: e.target.checked });
   };
 
@@ -84,7 +61,7 @@ const Filter = (props) => {
           control={
             <Checkbox
               checked={filter.clothing}
-              onChange={handleCheck}
+              onChange={handleCheckBox}
               name="clothing"
               color="secondary"
             />
@@ -95,7 +72,7 @@ const Filter = (props) => {
           control={
             <Checkbox
               checked={filter.shoes}
-              onChange={handleCheck}
+              onChange={handleCheckBox}
               name="shoes"
               color="secondary"
             />
@@ -106,7 +83,7 @@ const Filter = (props) => {
           control={
             <Checkbox
               checked={filter.gears}
-              onChange={handleCheck}
+              onChange={handleCheckBox}
               name="gears"
               color="secondary"
             />
@@ -117,7 +94,7 @@ const Filter = (props) => {
           control={
             <Checkbox
               checked={filter.men}
-              onChange={handleCheck}
+              onChange={handleCheckBox}
               name="men"
               color="secondary"
             />
@@ -128,7 +105,7 @@ const Filter = (props) => {
           control={
             <Checkbox
               checked={filter.women}
-              onChange={handleCheck}
+              onChange={handleCheckBox}
               name="women"
               color="secondary"
             />
@@ -139,7 +116,7 @@ const Filter = (props) => {
           control={
             <Checkbox
               checked={filter.kid}
-              onChange={handleCheck}
+              onChange={handleCheckBox}
               name="kid"
               color="secondary"
             />
