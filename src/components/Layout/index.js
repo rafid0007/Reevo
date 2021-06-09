@@ -24,6 +24,7 @@ import layoutStyles from "./Layout.styles";
 import {Divider} from "@material-ui/core";
 import Logo from "./Logo";
 import {ArrowDropDown} from "@material-ui/icons";
+import UserMenu from "./userMenu";
 
 const Layout = ({ window, children, hideSidenav }) => {
   const classes = layoutStyles();
@@ -173,17 +174,7 @@ const Layout = ({ window, children, hideSidenav }) => {
             {/******* Cart Icon with drawer onClick *****/}
             <CartDrawer />
             {/******* User Profile Icon *******/}
-            <Link href="/login">
-              <a>
-                <IconButton
-                  aria-label="show 4 new mails"
-                  color="inherit"
-                  className={classes.loginButton}
-                >
-                  <PersonOutlineOutlinedIcon />
-                </IconButton>
-              </a>
-            </Link>
+            <UserMenu />
           </Toolbar>
         </AppBar>
 
