@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Link from "next/link";
-
+import {useRouter} from "next/router";
 import {Button, Typography, Divider, TextField} from "@material-ui/core";
-
 import CustomDatePicker from "../common/CustomDatePicker";
 import CustomSelect from "../common/CustomSelect";
-
 import styles from "./SignUpPage.module.scss";
+import {FcGoogle} from "react-icons/fc";
+import {auth, db, provider} from "../../firebase";
+import {useAuthState} from "react-firebase-hooks/auth";
 
 const TextFieldProps = {
     variant:'outlined',
@@ -17,11 +18,36 @@ const TextFieldProps = {
 }
 
 const SignUpPage = () => {
+    const signIn = () => {
+        auth.signInWithPopup(provider).catch(alert);
+    }
+
+    const [user, loading] = useAuthState(auth);
+    const router = useRouter();
+
+      useEffect(() => {
+        if (user) {
+          db.collection("users").doc(user.uid).set(
+              {
+                displayName: user.displayName,
+                email: user.email,
+                photoUrl: user.photoURL,
+              }, {merge: true}
+          );
+          router.push('/');
+        }
+      },[user])
+
   return (
       <div className={styles.signUp}>
         <Typography style={{ fontSize: "2.4rem" }} paragraph variant="h6">
           CREATE YOUR REEVO ACCOUNT
         </Typography>
+
+          <Button fullWidth color="secondary" variant="outlined" startIcon={<FcGoogle/>} onClick={signIn}>
+              Sign Up With Google
+          </Button>
+          <Typography variant="overline">Or</Typography>
         <form className={styles.form}>
             <Typography variant='button'>
                 PERSONAL INFORMATION
